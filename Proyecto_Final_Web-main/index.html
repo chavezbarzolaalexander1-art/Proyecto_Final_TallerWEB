@@ -67,7 +67,7 @@
 
   <div class="main-wrapper">
     <header>
-      <h1>MENU</h1>
+      <h1>Dashboard</h1>
       <div class="user-profile">
         <div class="profile-info">
           <div class="avatar"><i class="fa-solid fa-user"></i></div>
@@ -137,6 +137,60 @@
               <div class="label">Citas por gestionar</div>
             </div>
           </article>
+        </div>
+      </section>
+
+      <!-- Tabla de Datos requerida -->
+      <section class="content-box">
+        <div class="section-header">
+          <div>
+            <h3>Programación de Consultas del Día</h3>
+            <p>Registro y control de pacientes citados en el sistema</p>
+          </div>
+        </div>
+
+        <div class="tabla-contenedor">
+          <table class="tabla-citas">
+            <thead>
+              <tr>
+                <th>Paciente</th>
+                <th>Especialidad</th>
+                <th>Médico Asignado</th>
+                <th>Fecha y Hora</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Juan Carlos Pérez</td>
+                <td>Cardiología</td>
+                <td>Dr. Robert Hurtado</td>
+                <td>20/04/2026 - 09:00 AM</td>
+                <td><span class="badge badge-yellow">Programada</span></td>
+              </tr>
+              <tr>
+                <td>María Elena Torres</td>
+                <td>Pediatría</td>
+                <td>Dra. Susan Perez</td>
+                <td>20/04/2026 - 10:30 AM</td>
+                <td><span class="badge badge-teal">Confirmada</span></td>
+              </tr>
+              <tr>
+                <td>Roberto Gómez</td>
+                <td>Neurología</td>
+                <td>Dra. Salome Torres</td>
+                <td>20/04/2026 - 11:15 AM</td>
+                <td><span class="badge badge-blue">En atención</span></td>
+              </tr>
+              <tr>
+                <td>Ana Lucía Ramos</td>
+                <td>Traumatología</td>
+                <td>Dr. Carlos Mendoza</td>
+                <td>20/04/2026 - 12:00 PM</td>
+                <td><span class="badge badge-purple">Atendida</span></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
 
