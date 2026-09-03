@@ -25,7 +25,7 @@ body {
   color: var(--text-dark);
 }
 
-/* Barra lateral / Aside */
+/* Sidebar lateral */
 aside {
   width: 250px;
   background-color: var(--bg-sidebar);
@@ -287,7 +287,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 }
 
 .section-header h3 {
@@ -379,7 +379,46 @@ main {
   justify-content: space-between;
 }
 
-/* Grillas Internas */
+/* Tablas */
+.tabla-contenedor {
+  overflow-x: auto;
+  margin-top: 14px;
+}
+
+.tabla-citas {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  text-align: left;
+  background-color: var(--bg-card);
+}
+
+.tabla-citas th, .tabla-citas td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.tabla-citas th {
+  background-color: #f8fafc;
+  color: var(--text-dark);
+  font-weight: 700;
+}
+
+.tabla-citas tr:hover {
+  background-color: #f1f5f9;
+}
+
+/* Multimedia e Imágenes */
+.doctor-img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 12px;
+  display: block;
+  border: 3px solid #dbeafe;
+}
+
 .items-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -412,7 +451,7 @@ main {
   line-height: 1.5;
 }
 
-/* Formulario Contacto */
+/* Contacto */
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
