@@ -6,6 +6,168 @@
     <title>Document</title>
 </head>
 <body>
+<header>
+    <nav>
+        <a href="../index.html" class=""> <img src="../img/Iconos/medikali.png" alt="logo-nav"></a>
+        <ul class="menu">
+            <li class="Boton-menu"><a href="../index.html">Inicio</a></li>
+            <li class="Boton-menu"><a href="../Servicios/index.html">Servicios</a></li>
+            <li class="Boton-menu"><a href="../Especialidades/index.html">Especialidades</a></li>
+            <li class="Boton-menu"><a href="../Staff/index.html">Staff</a></li>
+            <li class="Boton-menu"><a href="../Nosotros/index.html">Nosotros</a></li>
+            <li class="Boton-menu"><a href="../Agendar_Cita/index.html">Agendar Cita</a></li>
+        </ul>
+    </nav>
+</header>
+<section class="seccion-intro-reserva">
+    <h2>Da el primer paso hacia una atención integral</h2>
+    <p>
+        En Meddi cuidamos cada detalle de la salud de nuestros adultos mayores. Solicita tu cita en pocos minutos
+        completando el siguiente formulario. Nuestro equipo médico evaluará la solicitud y te contactará a la brevedad
+        vía WhatsApp o llamada telefónica para confirmar el horario disponible y los detalles de tu consulta.
+    </p>
+</section>
 
+<section class="seccion-formulario-cita">
+        <h3>Solicitud de Consulta Médica</h3>
+        <p class="nota-formulario">Todos los campos marcados con (*) son obligatorios.</p>
+
+        <form action="#" method="POST" class="formulario-cita">
+            <fieldset>
+                <legend>Datos del Paciente</legend>
+
+                <div class="campo">
+                    <label for="nombre-paciente">Nombres y Apellidos completos *</label>
+                    <input type="text" id="nombre-paciente" name="nombre_paciente" placeholder="Ej. Juan Pérez Ramos"
+                           required>
+                </div>
+
+                <div class="campo">
+                    <label for="dni-paciente">Documento de Identidad (DNI / CE) *</label>
+                    <input type="text" id="dni-paciente" name="dni_paciente" placeholder="Ej. 08765432" maxlength="12"
+                           required>
+                </div>
+
+                <div class="campo">
+                    <label for="edad-paciente">Edad *</label>
+                    <input type="number" id="edad-paciente" name="edad_paciente" min="1" max="120" placeholder="Ej. 72"
+                           required>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Datos de Contacto (Paciente o Familiar)</legend>
+
+                <div class="campo">
+                    <label for="nombre-contacto">Nombre del contacto o acompañante *</label>
+                    <input type="text" id="nombre-contacto" name="nombre_contacto" placeholder="Ej. María Pérez (Hija)"
+                           required>
+                </div>
+
+                <div class="campo">
+                    <label for="telefono-contacto">Teléfono o Celular (WhatsApp) *</label>
+                    <input type="tel" id="telefono-contacto" name="telefono_contacto" placeholder="Ej. 999 888 777"
+                           required>
+                </div>
+
+                <div class="campo">
+                    <label for="correo-contacto">Correo electrónico</label>
+                    <input type="email" id="correo-contacto" name="correo_contacto" placeholder="correo@ejemplo.com">
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Detalles de la Cita</legend>
+
+                <div class="campo">
+                    <label for="especialidad">Especialidad requerida *</label>
+                    <select id="especialidad" name="especialidad" required>
+                        <option value="" disabled selected>Selecciona una especialidad</option>
+                        <option value="geriatria">Geriatría</option>
+                        <option value="medicina-interna">Medicina Interna</option>
+                        <option value="endocrinologia">Endocrinología</option>
+                        <option value="nutricion">Nutrición</option>
+                        <option value="psiquiatria">Psiquiatría</option>
+                        <option value="dermatologia">Dermatología</option>
+                        <option value="hematologia">Hematología</option>
+                        <option value="neumologia">Neumología</option>
+                        <option value="gastroenterologia">Gastroenterología</option>
+                        <option value="cardiologia">Cardiología</option>
+                        <option value="neurologia">Neurología</option>
+                        <option value="psicologia">Psicología</option>
+                        <option value="oftalmologia">Oftalmología</option>
+                        <option value="enfermeria">Enfermería</option>
+                        <option value="reumatologia">Reumatología</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="modalidad">Modalidad de atención *</label>
+                    <select id="modalidad" name="modalidad" required>
+                        <option value="" disabled selected>Selecciona una modalidad</option>
+                        <option value="presencial">Presencial en sede</option>
+                        <option value="virtual">Teleconsulta (Virtual)</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="fecha-tentativa">Fecha preferida para la atención *</label>
+                    <input type="date" id="fecha-tentativa" name="fecha_tentativa" required>
+                </div>
+
+                <div class="campo">
+                    <label for="turno-preferido">Turno de preferencia *</label>
+                    <select id="turno-preferido" name="turno_preferido" required>
+                        <option value="" disabled selected>Selecciona turno</option>
+                        <option value="manana">Mañana (8:00 am - 1:00 pm)</option>
+                        <option value="tarde">Tarde (2:00 pm - 7:00 pm)</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="motivo-consulta">Motivo de consulta o síntomas principales *</label>
+                    <textarea id="motivo-consulta" name="motivo_consulta" rows="4"
+                              placeholder="Describe brevemente las molestias, antecedentes o dudas médicas del paciente..."
+                              required></textarea>
+                </div>
+            </fieldset>
+
+            <div class="campo-terminos">
+                <label for="terminos">
+                    <input type="checkbox" id="terminos" name="terminos" required>
+                    Acepto las políticas de privacidad y el tratamiento de datos de salud.
+                </label>
+            </div>
+            <button type="submit" class="boton-enviar-cita">Enviar solicitud de cita</button>
+        </form>
+
+</section>
+<footer class="footer-principal">
+    <div class="contenido-footer">
+        <div class="footer-columna">
+            <img src="../img/Iconos/medikali.png" alt="logo medikali" class="logo-footer">
+            <p>Cuidamos la salud del Adulto Mayor durante todas las etapas del envejecimiento. Contamos con un equipo
+                especializado enfocado en la atención y mejora de la calidad de vida del Adulto Mayor.</p>
+        </div>
+        <div class="footer-columna">
+            <h3>Contactanos</h3>
+            <p>Celular: <a href="">+51 960 398 072</a></p>
+            <p>Wtsp: <a href="">+51 960 398 072</a></p>
+            <p><a href="mailto:contacto@medikali.pe">contacto@medikali.pe</a></p>
+            <p>Perú</p>
+        </div>
+        <div class="footer-columna">
+            <h3>Navegar</h3>
+            <ul class="footer-limks">
+                <li><a href="../Servicios/index.html">Servicios</a></li>
+                <li><a href="../Especialidades/index.html">Especialidades</a></li>
+                <li><a href="../Staff/index.html">Staff</a></li>
+                <li><a href="../Nosotros/index.html">Nosotros</a></li>
+                <li><a href="../Agendar_Cita/index.html">Agendar Cita</a></li>
+            </ul>
+        </div>
+
+    </div>
+</footer>
 </body>
 </html>
