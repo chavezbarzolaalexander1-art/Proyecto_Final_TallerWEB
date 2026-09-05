@@ -4,21 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Document</title>
+    <link rel="stylesheet" href="../CSS/main.css">
 </head>
 <body>
-<header>
-    <nav>
-        <a href="../index.html" class=""> <img src="../img/Iconos/medikali.png" alt="logo-nav"></a>
-        <ul class="menu">
+<header class="cabecera-principal">
+    <nav class="barra-navegacion">
+        <a href="../index.html" class=""> <img src="../img/Iconos/medikali.png" alt="logo-nav" class="logo-img"></a>
+        <input type="checkbox" id="check-menu" class="check-menu">
+        <label for="check-menu" class="icono-hamburguesa" aria-label="Abrir menú">
+            <span class="linea"></span>
+            <span class="linea"></span>
+            <span class="linea"></span>
+        </label>
+        <ul class="menu-navegacion">
             <li class="Boton-menu"><a href="../index.html">Inicio</a></li>
             <li class="Boton-menu"><a href="../Servicios/index.html">Servicios</a></li>
             <li class="Boton-menu"><a href="../Especialidades/index.html">Especialidades</a></li>
             <li class="Boton-menu"><a href="../Staff/index.html">Staff</a></li>
             <li class="Boton-menu"><a href="../Nosotros/index.html">Nosotros</a></li>
-            <li class="Boton-menu"><a href="../Agendar_Cita/index.html">Agendar Cita</a></li>
+            <li class="Boton-menu"><a href="../Agendar_Cita/index.html" class="enlace-reserva">Agendar Cita</a></li>
         </ul>
-    </nav></header>
-<section class="Especialidades-V2">
+    </nav>
+</header>
+<section class="Especialidades">
     <h2>¿Que especialidad necesitas hoy?</h2>
     <h3>Contamos con mas de 10 especialidades </h3>
     <ul class="lista-especialidades">

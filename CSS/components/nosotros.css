@@ -1,0 +1,146 @@
+/* ==========================================================================
+   PÁGINA: NOSOTROS
+   ========================================================================== */
+
+/* 1. Sección: ¿Quiénes somos? */
+.seccion-quienes-somos {
+    max-width: 900px;
+    margin: 3.5rem auto 2.5rem;
+    padding: 2.5rem 2rem;
+    background-color: var(--color-blanco);
+    border-radius: 14px;
+    border: 1px solid var(--color-borde);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    text-align: center;
+}
+
+.seccion-quienes-somos h2,
+.seccion-nuestro-compromiso h2 {
+    font-size: 2rem;
+    color: var(--color-primario-oscuro);
+    margin-bottom: 1.2rem;
+}
+
+.seccion-quienes-somos p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--color-texto);
+    margin-bottom: 1.2rem;
+    text-align: justify; /* Justificado para lectura prolija de párrafos largos */
+}
+
+/* 2. Sección: ¿Cómo somos? (Tarjeta destacada) */
+.seccion-como-somos {
+    max-width: 900px;
+    margin: 0 auto 2.5rem;
+    padding: 0 1rem;
+}
+
+.seccion-como-somos .bloque-texto {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border-left: 5px solid var(--color-primario);
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.06);
+}
+
+.seccion-como-somos h2 {
+    font-size: 1.8rem;
+    color: var(--color-primario-oscuro);
+    margin-bottom: 1rem;
+}
+
+.seccion-como-somos p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--color-texto);
+    margin-bottom: 1.2rem;
+}
+
+.seccion-como-somos .lema {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-primario-oscuro);
+    font-style: italic;
+    margin-top: 1rem;
+}
+
+.seccion-como-somos .llamado-accion {
+    font-size: 1.1rem;
+    color: var(--color-primario);
+    margin-bottom: 0;
+}
+
+/* 3. Sección: Nuestro compromiso */
+.seccion-nuestro-compromiso {
+    max-width: 900px;
+    margin: 0 auto 5rem;
+    padding: 2.5rem 2rem;
+    background-color: var(--color-blanco);
+    border-radius: 14px;
+    border: 1px solid var(--color-borde);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.seccion-nuestro-compromiso > p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--color-texto);
+    margin-bottom: 1.5rem;
+}
+
+.seccion-nuestro-compromiso ul {
+    margin: 1.5rem 0 2rem;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.seccion-nuestro-compromiso li {
+    background-color: #f8fafc;
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+    padding: 1.2rem 1.4rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    position: relative;
+    padding-left: 2.8rem;
+}
+
+/* Check o icono decorativo celeste en cada punto */
+.seccion-nuestro-compromiso li::before {
+    content: "✔";
+    position: absolute;
+    left: 1.1rem;
+    top: 1.1rem;
+    color: var(--color-primario);
+    font-weight: bold;
+}
+
+.seccion-nuestro-compromiso li strong {
+    color: var(--color-primario-oscuro);
+}
+
+
+@media (max-width: 768px) {
+    .seccion-quienes-somos,
+    .seccion-nuestro-compromiso {
+        margin: 2rem 1rem;
+        padding: 1.8rem 1.2rem;
+    }
+
+    .seccion-quienes-somos h2,
+    .seccion-nuestro-compromiso h2,
+    .seccion-como-somos h2 {
+        font-size: 1.6rem;
+    }
+
+    .seccion-como-somos .bloque-texto {
+        padding: 1.5rem 1.2rem;
+    }
+
+    .seccion-quienes-somos p {
+        text-align: left; /* En pantallas pequeñas se lee mejor alineado a la izquierda */
+    }
+}

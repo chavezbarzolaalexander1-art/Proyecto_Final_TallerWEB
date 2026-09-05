@@ -4,30 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Document</title>
+    <link rel="stylesheet" href="../CSS/main.css">
 </head>
 <body>
-<header>
-    <nav>
-        <a href="../index.html" class=""> <img src="../img/Iconos/medikali.png" alt="logo-nav"></a>
-        <ul class="menu">
+<header class="cabecera-principal">
+    <nav class="barra-navegacion">
+        <a href="../index.html" class=""> <img src="../img/Iconos/medikali.png" alt="logo-nav" class="logo-img"></a>
+        <input type="checkbox" id="check-menu" class="check-menu">
+        <label for="check-menu" class="icono-hamburguesa" aria-label="Abrir menú">
+            <span class="linea"></span>
+            <span class="linea"></span>
+            <span class="linea"></span>
+        </label>
+        <ul class="menu-navegacion">
             <li class="Boton-menu"><a href="../index.html">Inicio</a></li>
             <li class="Boton-menu"><a href="../Servicios/index.html">Servicios</a></li>
             <li class="Boton-menu"><a href="../Especialidades/index.html">Especialidades</a></li>
             <li class="Boton-menu"><a href="../Staff/index.html">Staff</a></li>
             <li class="Boton-menu"><a href="../Nosotros/index.html">Nosotros</a></li>
-            <li class="Boton-menu"><a href="../Agendar_Cita/index.html">Agendar Cita</a></li>
+            <li class="Boton-menu"><a href="../Agendar_Cita/index.html" class="enlace-reserva">Agendar Cita</a></li>
         </ul>
-    </nav></header>
-
+    </nav>
+</header>
 <section class="Banner-servicios">
     <img src="../img/Iconos/banner_2.png" alt="banner-servicios">
 </section>
 <section class="Nuestros-servicios">
     <h2>Nuestros Servivios</h2>
     <p>En Medikali cuidamos la salud del Adulto Mayor durante todas las etapas de su envejecimiento.</p>
-    <p>Contamos con un equipo especializado de médicos geriatras y otras especialidades, quienes juntos a enfermeras, nutricionistas y terapistas le atenderan y ayudaran  a mejorar la calidad de vida del
+    <p>Contamos con un equipo especializado de médicos geriatras y otras especialidades, quienes juntos a enfermeras,
+        nutricionistas y terapistas le atenderan y ayudaran a mejorar la calidad de vida del
         Adulto Mayor desde la comodidad y seguridad de su hogar y de forma presencial en consultorio.</p>
-    <p>Adicionalmente, brindamos una atención integral que incluye la toma de exámenes de laboratorio, cardiológicos y de imágenes
+    <p>Adicionalmente, brindamos una atención integral que incluye la toma de exámenes de laboratorio, cardiológicos y
+        de imágenes
         (rayos X, ecografías) a domicilio para mayor seguridad y comodidad.</p>
 </section>
 <section class="servicios">

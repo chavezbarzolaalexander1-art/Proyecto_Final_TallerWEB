@@ -4,24 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Document</title>
-    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="CSS/main.css">
 </head>
 <body>
-<header>
-<nav>
-    <a href="index.html" class=""> <img src="img/Iconos/medikali.png" alt="logo-nav"></a>
-    <ul class="menu">
-        <li class="Boton-menu"><a href="index.html">Inicio</a></li>
-        <li class="Boton-menu"><a href="Servicios/index.html">Servicios</a></li>
-        <li class="Boton-menu"><a href="Especialidades/index.html">Especialidades</a></li>
-        <li class="Boton-menu"><a href="Staff/index.html">Staff</a></li>
-        <li class="Boton-menu"><a href="Nosotros/index.html">Nosotros</a></li>
-        <li class="Boton-menu"><a href="Agendar_Cita/index.html">Agendar Cita</a></li>
-    </ul>
-</nav></header>
+<header class="cabecera-principal">
+    <nav class="barra-navegacion">
+        <a href="index.html" class=""> <img src="img/Iconos/medikali.png" alt="logo-img" class="logo-img"></a>
+        <input type="checkbox" id="check-menu" class="check-menu">
+        <label for="check-menu" class="icono-hamburguesa" aria-label="Abrir menú">
+            <span class="linea"></span>
+            <span class="linea"></span>
+            <span class="linea"></span>
+        </label>
+        <ul class="menu-navegacion">
+            <li class="Boton-menu"><a href="index.html">Inicio</a></li>
+            <li class="Boton-menu"><a href="Servicios/index.html">Servicios</a></li>
+            <li class="Boton-menu"><a href="Especialidades/index.html">Especialidades</a></li>
+            <li class="Boton-menu"><a href="Staff/index.html">Staff</a></li>
+            <li class="Boton-menu"><a href="Nosotros/index.html">Nosotros</a></li>
+            <li class="Boton-menu"><a href="Agendar_Cita/index.html" class="enlace-reserva">Agendar Cita</a></li>
+        </ul>
+    </nav>
+</header>
 <section class="Banner-inicio">
     <img src="img/Iconos/banner_1.png" alt="banner-inicio">
-</section> 
+</section>
 <section class="Nosotros">
     <p>Médicos especialistas comprometidos con el bienestar y salud del Adulto Mayor. Contamos con un equipo de
         especialistas
@@ -124,8 +131,8 @@
     <a href="Especialidades" class="Boton">Especialidades</a>
 </section>
 <section class="Staff">
-    <h2>Conoce nuesto staff de Doctores</h2>
-    <h3>Encuentra tu especialita</h3>
+    <h2>Conoce nuestro staff de Doctores</h2>
+    <h3>Encuentra tu especialista</h3>
     <ul class="lista-staff">
         <li class="tarjeta-doctore">
             <img src="img/Staff/Ana_Lucía_Torres.png" alt="Ana" class="imagen-doctore">
@@ -166,8 +173,8 @@
     <div class="contenido-footer">
         <div class="footer-columna">
             <img src="img/Iconos/medikali.png" alt="logo medikali" class="logo-footer">
-            <p>Cuidamos la salud del Adulto Mayor durante todas las etapas del envejecimiento. Contamos con un equipo
-                especializado enfocado en la atención y mejora de la calidad de vida del Adulto Mayor.</p>
+            <p>Cuidamos la salud del Adulto Mayor durante todas las etapas del envejecimiento.
+                Contamos con un equipo especializado enfocado en la atención y mejora de la calidad de vida del Adulto Mayor.</p>
         </div>
         <div class="footer-columna">
             <h3>Contactanos</h3>

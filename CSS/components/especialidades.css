@@ -1,0 +1,90 @@
+
+
+/* Contenedor general del tarifario */
+.seccion-tarifario {
+    max-width: 800px;
+    margin: 4rem auto 5rem;
+    padding: 2.5rem 2rem;
+    background-color: var(--color-blanco);
+    border-radius: 14px;
+    border: 1px solid var(--color-borde);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+    text-align: center;
+}
+
+.seccion-tarifario h2 {
+    font-size: 1.8rem;
+    color: var(--color-primario-oscuro);
+    margin-bottom: 0.5rem;
+}
+
+.seccion-tarifario p {
+    color: var(--color-texto-mutado);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+}
+
+/* Estructura de la tabla */
+.tabla-tarifario {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.95rem;
+}
+
+/* Encabezados de columna */
+.tabla-tarifario thead tr {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+}
+
+.tabla-tarifario th {
+    padding: 0.9rem 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.tabla-tarifario th:last-child {
+    text-align: right; /* Alinea los precios hacia la derecha */
+}
+
+/* Filas y celdas */
+.tabla-tarifario td {
+    padding: 0.85rem 1.2rem;
+    border-bottom: 1px solid var(--color-borde);
+    color: var(--color-texto);
+}
+
+.tabla-tarifario td:last-child {
+    text-align: right;
+    font-weight: 600;
+    color: var(--color-primario-oscuro); /* Destaca el monto */
+}
+
+
+.tabla-tarifario tbody tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+
+
+.tabla-tarifario tbody tr:hover {
+    background-color: var(--color-fondo);
+}
+
+
+@media (max-width: 768px) {
+    .seccion-tarifario {
+        margin: 2.5rem 1rem 3.5rem;
+        padding: 1.5rem 1rem;
+    }
+
+    .seccion-tarifario h2 {
+        font-size: 1.4rem;
+    }
+
+    .tabla-tarifario th,
+    .tabla-tarifario td {
+        padding: 0.75rem 0.6rem;
+        font-size: 0.85rem;
+    }
+}
