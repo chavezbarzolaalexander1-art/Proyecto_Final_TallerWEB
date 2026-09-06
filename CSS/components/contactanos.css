@@ -1,0 +1,189 @@
+
+.preambulo-contacto {
+    max-width: 800px;
+    margin: 3.5rem auto 2rem;
+    padding: 0 1.5rem;
+    text-align: center;
+}
+
+.preambulo-contacto h2 {
+    font-size: 2.2rem;
+    color: var(--color-primario-oscuro);
+    margin-bottom: 0.8rem;
+}
+
+.preambulo-contacto p {
+    font-size: 1.05rem;
+    color: var(--color-texto-mutado);
+    line-height: 1.7;
+}
+
+/* ==========================================================================
+   2. SECCIÓN: FORMULARIO DE CONTACTO
+   ========================================================================== */
+.seccion-formulario-contacto {
+    max-width: 760px;
+    margin: 0 auto 3.5rem;
+    padding: 2.5rem 2rem;
+    background-color: var(--color-blanco);
+    border-radius: 14px;
+    border: 1px solid var(--color-borde);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+.seccion-formulario-contacto h3 {
+    font-size: 1.5rem;
+    color: var(--color-primario-oscuro);
+    margin-bottom: 1.8rem;
+    text-align: center;
+}
+
+.campo-contacto {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 1.3rem;
+}
+
+.campo-contacto label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-texto);
+}
+
+.campo-contacto input,
+.campo-contacto select,
+.campo-contacto textarea {
+    width: 100%;
+    padding: 0.75rem 0.9rem;
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: var(--color-texto);
+    background-color: #ffffff;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.campo-contacto input:focus,
+.campo-contacto select:focus,
+.campo-contacto textarea:focus {
+    border-color: var(--color-secundario);
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+}
+
+.campo-contacto textarea {
+    resize: vertical;
+}
+
+.boton-enviar-contacto {
+    width: 100%;
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    border: none;
+    padding: 0.9rem;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.2);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.boton-enviar-contacto:hover {
+    background-color: var(--color-primario-oscuro);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   3. SECCIÓN: OTRAS FORMAS DE CONTACTO (CANALES)
+   ========================================================================== */
+.seccion-canales-directos {
+    max-width: 900px;
+    margin: 0 auto 5rem;
+    padding: 0 1.5rem;
+    text-align: center;
+}
+
+.seccion-canales-directos h2 {
+    font-size: 1.8rem;
+    color: var(--color-primario-oscuro);
+    margin-bottom: 0.5rem;
+}
+
+.seccion-canales-directos > p {
+    color: var(--color-texto-mutado);
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+.lista-canales-contacto {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    text-align: left;
+}
+
+.tarjeta-canal {
+    background-color: var(--color-blanco);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--color-borde);
+    border-top: 4px solid var(--color-primario);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+    transition: transform 0.2s ease;
+}
+
+.tarjeta-canal:hover {
+    transform: translateY(-3px);
+}
+
+.tarjeta-canal h4 {
+    font-size: 1.05rem;
+    color: var(--color-primario-oscuro);
+    margin-bottom: 0.6rem;
+}
+
+.tarjeta-canal p {
+    font-size: 0.92rem;
+    color: var(--color-texto);
+    margin-bottom: 0.4rem;
+    line-height: 1.5;
+}
+
+.tarjeta-canal p:last-child {
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   4. ADAPTABILIDAD RESPONSIVA (MÓVILES: MENOS DE 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .preambulo-contacto {
+        margin: 2rem auto 1.5rem;
+    }
+
+    .preambulo-contacto h2 {
+        font-size: 1.7rem;
+    }
+
+    .seccion-formulario-contacto {
+        margin: 0 1rem 2.5rem;
+        padding: 1.8rem 1.2rem;
+    }
+
+    .seccion-canales-directos {
+        margin: 0 auto 3.5rem;
+    }
+
+    .seccion-canales-directos h2 {
+        font-size: 1.5rem;
+    }
+
+    .lista-canales-contacto {
+        grid-template-columns: 1fr;
+    }
+}

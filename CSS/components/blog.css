@@ -1,0 +1,123 @@
+
+
+/* 1. Invitación / Cabecera */
+.intro-blog {
+    max-width: 850px;
+    margin: 3.5rem auto 2.5rem;
+    padding: 0 1.5rem;
+    text-align: center;
+}
+
+.intro-blog h2 {
+    font-size: 2.2rem;
+    color: var(--color-primario-oscuro);
+    margin-bottom: 0.8rem;
+}
+
+.intro-blog p {
+    font-size: 1.05rem;
+    color: var(--color-texto-mutado);
+    line-height: 1.7;
+}
+
+/* 2. Sección del listado */
+.seccion-articulos {
+    max-width: 1000px;
+    margin: 0 auto 5rem;
+    padding: 0 1.5rem;
+}
+
+.contenedor-articulos {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* Espacio entre cada artículo */
+}
+
+/* 3. Estilo de cada artículo */
+.tarjeta-articulo {
+    background-color: var(--color-blanco);
+    border-radius: 14px;
+    border: 1px solid var(--color-borde);
+    padding: 2.2rem;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tarjeta-articulo:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.etiqueta-categoria {
+    display: inline-block;
+    background-color: var(--color-fondo);
+    color: var(--color-primario);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    margin-bottom: 0.8rem;
+}
+
+.tarjeta-articulo h3 {
+    font-size: 1.4rem;
+    color: var(--color-primario-oscuro);
+    margin-bottom: 0.3rem;
+}
+
+.fecha-publicacion {
+    font-size: 0.85rem;
+    color: var(--color-texto-mutado);
+    margin-bottom: 1rem;
+}
+
+.resumen-articulo {
+    font-size: 1rem;
+    color: var(--color-texto);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+/* Enlace a la fuente externa */
+.enlace-fuente {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--color-primario);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.enlace-fuente:hover {
+    color: var(--color-primario-oscuro);
+    border-bottom-color: var(--color-primario);
+}
+
+/* ==========================================================================
+   ADAPTABILIDAD RESPONSIVA (CELULARES)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .intro-blog {
+        margin: 2rem auto 1.5rem;
+    }
+
+    .intro-blog h2 {
+        font-size: 1.6rem;
+    }
+
+    .tarjeta-articulo {
+        padding: 1.5rem 1.2rem;
+    }
+
+    .tarjeta-articulo h3 {
+        font-size: 1.2rem;
+    }
+}
