@@ -1,0 +1,38 @@
+/* ==========================================================================
+   PÁGINA: STAFF (CABECERA INTRODUCTORIA)
+   ========================================================================== */
+.intro-staff {
+    max-width: 850px;
+    margin: 3.5rem auto 1.5rem;
+    padding: 0 1.5rem;
+    text-align: center;
+}
+
+.intro-staff h2 {
+    font-size: 2.2rem;
+    color: var(--color-primario-oscuro);
+    margin-bottom: 0.3rem;
+}
+
+.intro-staff h3 {
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--color-secundario);
+    margin-bottom: 1.2rem;
+}
+
+.intro-staff p {
+    color: var(--color-texto-mutado);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+    .intro-staff {
+        margin: 2rem auto 1rem;
+    }
+
+    .intro-staff h2 {
+        font-size: 1.7rem;
+    }
+}

@@ -1,0 +1,271 @@
+
+.Boton {
+    display: inline-block;
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    padding: 0.75rem 1.75rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+    box-shadow: 0 4px 10px rgba(2, 132, 199, 0.2);
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.Boton:hover {
+    background-color: var(--color-primario-oscuro);
+    color: var(--color-blanco);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(3, 105, 161, 0.25);
+}
+
+.Nosotros {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    background-color: var(--color-blanco);
+    border-radius: 12px;
+    border: 1px solid var(--color-borde);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.Nosotros p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--color-texto);
+    margin-bottom: 1.5rem;
+}
+
+.Nosotros a {
+    font-weight: 600;
+    border-bottom: 2px solid var(--color-secundario);
+    padding-bottom: 2px;
+}
+
+.servicios {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 1.5rem;
+    text-align: center;
+}
+
+.servicios h2,
+.Especialidades h2,
+.Staff h2 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.servicios h3,
+.Especialidades h3,
+.Staff h3 {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--color-texto-mutado);
+    margin-bottom: 2.5rem;
+}
+
+.lista-servicios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    text-align: left;
+}
+
+.tarjeta-servicio {
+    background-color: var(--color-blanco);
+    padding: 1.8rem;
+    border-radius: 12px;
+    border: 1px solid var(--color-borde);
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tarjeta-servicio:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+    border-color: var(--color-secundario);
+}
+
+.tarjeta-servicio img {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+.contenido-servicio h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+}
+
+.contenido-servicio p {
+    font-size: 0.92rem;
+    color: var(--color-texto-mutado);
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   4. SECCIÓN: ESPECIALIDADES (GRILLA DE ICONOS CIRCULARES)
+   ========================================================================== */
+.Especialidades {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 1.5rem;
+    text-align: center;
+}
+
+.lista-especialidades {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.tarjeta-especialidad {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem;
+    border-radius: 12px;
+    transition: transform 0.2s ease;
+}
+
+.tarjeta-especialidad:hover {
+    transform: translateY(-3px);
+}
+
+.icono-ciruclar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background-color: var(--color-blanco);
+    border: 2px solid var(--color-secundario);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(56, 189, 248, 0.15);
+}
+
+.icono-ciruclar img {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+}
+
+.tarjeta-especialidad span {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-texto);
+    text-transform: capitalize;
+}
+
+
+.Staff {
+    max-width: 1200px;
+    margin: 4rem auto 5rem;
+    padding: 0 1.5rem;
+    text-align: center;
+}
+
+.lista-staff {
+    display: flex;             /* Usamos flexbox para alinear en fila */
+    flex-direction: row;       /* Fuerza la alineación horizontal */
+    flex-wrap: wrap;           /* Si ya no caben en la pantalla, bajan a la siguiente fila */
+    justify-content: center;   /* Centra las tarjetas en la fila */
+    gap: 2rem;                 /* Separación uniforme entre cada tarjeta */
+    list-style: none;
+    padding: 0;
+}
+
+.tarjeta-doctore {
+    background-color: var(--color-blanco);
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--color-borde);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    width: 260px;              /* Ancho fijo para que entren 4 por fila en PC */
+    flex-shrink: 0;            /* Evita que se aplasten */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tarjeta-doctore:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.09);
+}
+
+/* Contenedor o ajuste de la foto del doctor */
+.imagen-doctore,
+.imagen-doctores {
+    width: 100%;
+    height: 240px;             /* Altura visible de la foto */
+    object-fit: contain;       /* Muestra la foto completa sin recortarla ni estirarla */
+    background-color: #f8fafc; /* Fondo neutro por si la foto no llena todo el marco */
+    padding-top: 1rem;         /* Pequeño respiro arriba */
+}
+
+.contenido-staff {
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    align-items: center;
+    background-color: var(--color-blanco);
+}
+
+.contenido-staff h4 {
+    font-size: 1.05rem;
+    color: var(--color-primario-oscuro);
+    margin: 0;
+}
+
+.contenido-staff .especialidad {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-primario);
+}
+
+.contenido-staff .cmp {
+    font-size: 0.8rem;
+    color: var(--color-texto-mutado);
+    background-color: var(--color-fondo);
+    padding: 0.25rem 0.65rem;
+    border-radius: 20px;
+    margin-top: 0.3rem;
+}
+
+@media (max-width: 768px) {
+    .servicios h2,
+    .Especialidades h2,
+    .Staff h2 {
+        font-size: 1.6rem;
+    }
+
+    .lista-especialidades {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 1rem;
+    }
+
+    .icono-ciruclar {
+        width: 60px;
+        height: 60px;
+    }
+
+    .icono-ciruclar img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .tarjeta-servicio {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}

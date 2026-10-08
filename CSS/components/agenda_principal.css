@@ -1,0 +1,177 @@
+
+.seccion-intro-reserva {
+    max-width: 800px;
+    margin: 3.5rem auto 1.5rem;
+    padding: 0 1.5rem;
+    text-align: center;
+}
+
+.seccion-intro-reserva h2 {
+    font-size: 2rem;
+    color: var(--color-primario-oscuro);
+    margin-bottom: 0.8rem;
+}
+
+.seccion-intro-reserva p {
+    color: var(--color-texto-mutado);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+
+.seccion-formulario-cita {
+    max-width: 760px;
+    margin: 0 auto 5rem;
+    padding: 2.5rem 2rem;
+    background-color: var(--color-blanco);
+    border-radius: 14px;
+    border: 1px solid var(--color-borde);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+}
+
+.seccion-formulario-cita h3 {
+    font-size: 1.6rem;
+    color: var(--color-primario-oscuro);
+    text-align: center;
+    margin-bottom: 0.3rem;
+}
+
+.nota-formulario {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--color-texto-mutado);
+    margin-bottom: 2rem;
+}
+
+/* Agrupación por fieldset */
+.formulario-cita fieldset {
+    border: 1px solid var(--color-borde);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    background-color: #fafcfe;
+}
+
+.formulario-cita legend {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-primario);
+    padding: 0 0.6rem;
+}
+
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 1.2rem;
+}
+
+.campo:last-child {
+    margin-bottom: 0;
+}
+
+.campo label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-texto);
+}
+
+/* Entradas de texto, selects y textarea */
+.campo input[type="text"],
+.campo input[type="number"],
+.campo input[type="tel"],
+.campo input[type="email"],
+.campo input[type="date"],
+.campo select,
+.campo textarea {
+    width: 100%;
+    padding: 0.75rem 0.9rem;
+    font-size: 0.95rem;
+    font-family: inherit;
+    color: var(--color-texto);
+    background-color: var(--color-blanco);
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+    border-color: var(--color-secundario);
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+}
+
+.campo textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Checkbox de términos */
+.campo-terminos {
+    margin: 1.5rem 0 2rem;
+}
+
+.campo-terminos label {
+    font-size: 0.9rem;
+    color: var(--color-texto);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    cursor: pointer;
+}
+
+.campo-terminos input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--color-primario);
+    cursor: pointer;
+}
+
+/* Botón de envío */
+.boton-enviar-cita {
+    width: 100%;
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    border: none;
+    padding: 0.9rem 1.5rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    font-family: inherit;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.boton-enviar-cita:hover {
+    background-color: var(--color-primario-oscuro);
+    transform: translateY(-2px);
+}
+
+
+@media (max-width: 768px) {
+    .seccion-intro-reserva {
+        margin: 2rem auto 1rem;
+    }
+
+    .seccion-intro-reserva h2 {
+        font-size: 1.6rem;
+    }
+
+    .seccion-formulario-cita {
+        margin: 0 1rem 3.5rem;
+        padding: 1.8rem 1.2rem;
+    }
+
+    .formulario-cita fieldset {
+        padding: 1.2rem 0.9rem;
+    }
+
+    .campo label {
+        font-size: 0.9rem;
+    }
+}

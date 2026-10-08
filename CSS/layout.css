@@ -1,0 +1,182 @@
+.cabecera-principal {
+    background-color: var(--color-blanco);
+    border-bottom: 3px solid var(--color-secundario); /* Línea celeste inferior decorativa */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+.barra-navegacion {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.8rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+.logo-img{
+    height: 48px;
+    width: auto;
+}
+/* Ocultamos los controles de móvil en computadoras */
+.check-menu,
+.icono-hamburguesa {
+    display: none;
+}
+
+.menu-navegacion {
+    display: flex;
+    align-items: center;
+    gap: 1.8rem;
+}
+
+.menu-navegacion a {
+    color: var(--color-primario-oscuro);
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.4rem 0.2rem;
+    transition: color 0.2s ease, border-bottom 0.2s ease;
+}
+
+.menu-navegacion a:hover {
+    color: var(--color-secundario);
+}
+
+/* Botón destacado opcional para Agendar Cita */
+.menu-navegacion a.enlace-reserva {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.menu-navegacion a.enlace-reserva:hover {
+    background-color: var(--color-primario-oscuro);
+}
+/* VERSIÓN HAMBURGUESA PARA CELULAR (MENOS DE 768px) */
+@media (max-width: 768px) {
+    .icono-hamburguesa {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 28px;
+        height: 20px;
+        cursor: pointer;
+    }
+
+
+    .icono-hamburguesa .linea {
+        width: 100%;
+        height: 3px;
+        background-color: var(--color-primario-oscuro);
+        border-radius: 2px;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .menu-navegacion {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-blanco);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease-in-out;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    .menu-navegacion li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu-navegacion a {
+        display: block;
+        padding: 1rem;
+        border-bottom: 1px solid var(--color-fondo);
+    }
+
+    .menu-navegacion a.enlace-reserva {
+        border-radius: 0;
+        margin: 0.5rem 1.5rem 1rem;
+    }
+
+
+    .check-menu:checked ~ .menu-navegacion {
+        max-height: 380px;
+    }
+
+    .check-menu:checked ~ .icono-hamburguesa .linea:nth-child(1) {
+        transform: translateY(8.5px) rotate(45deg);
+    }
+    .check-menu:checked ~ .icono-hamburguesa .linea:nth-child(2) {
+        opacity: 0;
+    }
+    .check-menu:checked ~ .icono-hamburguesa .linea:nth-child(3) {
+        transform: translateY(-8.5px) rotate(-45deg);
+    }
+}
+
+.footer-principal{
+    background-color:var(--color-fondo-footer);
+    color: var(--color-texto-claro);
+    padding: 2.5rem 1.5rem 1.5rem;
+    margin-top: auto;
+}
+.contenido-footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+.footer-columna{
+    flex: 1 1 250px;
+}
+.footer-columna h3{
+        color: var(--color-secundario);
+        margin-bottom: 1rem;
+        font-size: 1.15rem;
+}
+.footer-columna p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+.footer-columna a {
+    color: var(--color-texto-claro);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+.footer-columna a:hover {
+    color: var(--color-secundario);
+    text-decoration: underline;
+}
+.logo-footer {
+    max-width: 140px;
+    margin-bottom: 0.8rem;
+}
+.footer-limks li {
+    margin-bottom: 0.4rem;
+}
+@media (max-width: 768px) {
+    .contenido-footer {
+        flex-direction: column;
+        gap: 1.8rem;
+        text-align: center;
+    }
+
+    .footer-columna {
+        width: 100%;
+    }
+
+    .logo-footer {
+        margin: 0 auto 0.5rem;
+    }
+}

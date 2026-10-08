@@ -1,0 +1,70 @@
+/* ==========================================================================
+   PÁGINA: SERVICIOS
+   ========================================================================== */
+
+/* Banner de la sección servicios */
+.Banner-servicios {
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--color-fondo);
+}
+
+.Banner-servicios img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+/* Bloque introductorio de presentación */
+.Nuestros-servicios {
+    max-width: 900px;
+    margin: 3.5rem auto 2rem;
+    padding: 2.5rem 2rem;
+    background-color: var(--color-blanco);
+    border-radius: 12px;
+    border: 1px solid var(--color-borde);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    text-align: center;
+}
+
+.Nuestros-servicios h2 {
+    font-size: 2rem;
+    color: var(--color-primario-oscuro);
+    margin-bottom: 1.2rem;
+}
+
+.Nuestros-servicios p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--color-texto);
+    margin-bottom: 1.2rem;
+}
+
+.Nuestros-servicios p:last-child {
+    margin-bottom: 0;
+}
+
+/* Ajustes del subtítulo y párrafo explicativo en la grilla */
+.servicios > p {
+    max-width: 700px;
+    margin: -1.5rem auto 2.5rem;
+    color: var(--color-texto-mutado);
+    font-size: 1rem;
+    text-align: center;
+}
+
+/* Ajuste móvil para el banner */
+@media (max-width: 768px) {
+    .Banner-servicios img {
+        max-height: 220px;
+    }
+
+    .Nuestros-servicios {
+        margin: 2rem 1rem;
+        padding: 1.8rem 1.2rem;
+    }
+
+    .Nuestros-servicios h2 {
+        font-size: 1.6rem;
+    }
+}

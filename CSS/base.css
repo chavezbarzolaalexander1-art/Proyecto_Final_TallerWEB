@@ -1,0 +1,52 @@
+:root {
+    --color-primario: #0284c7;       /* Celeste corporativo médico */
+    --color-primario-oscuro: #0369a1;/* Tono más oscuro para botones en hover */
+    --color-secundario: #38bdf8;     /* Celeste suave para acentos */
+    --color-fondo: #f0f9ff;          /* Fondo muy claro con un toque celeste */
+    --color-blanco: #ffffff;
+    --color-texto: #1e293b; /* Gris oscuro para lectura descansada */
+    --color-texto-claro: #a0cbf6; /* Texto claro legible */
+    --color-texto-mutado: #64748b;   /* Gris neutro para notas y subtítulos */
+    --color-borde: #e2e8f0;          /* Gris claro para líneas y divisiones */
+    --color-fondo-footer: #0f172a;   /*Azull ocuro sobrio */
+    --fuente-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: var(--fuente-principal),sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+h1, h2, h3, h4 {
+    color: var(--color-primario-oscuro);
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+}
+p {
+    margin-bottom: 1rem;
+}
+a {
+    color: var(--color-primario);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+a:hover {
+    color: var(--color-primario-oscuro);
+}
+ul {
+    list-style: none;
+}
