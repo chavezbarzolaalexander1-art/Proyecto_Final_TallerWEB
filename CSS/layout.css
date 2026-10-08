@@ -7,7 +7,7 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 .barra-navegacion {
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 0 auto;
     padding: 0.8rem 1.5rem;
     display: flex;
@@ -47,12 +47,23 @@
 .menu-navegacion a.enlace-reserva {
     background-color: var(--color-primario);
     color: var(--color-blanco);
-    padding: 0.5rem 1.2rem;
+    padding: 0.5rem 0.5rem;
     border-radius: 6px;
     transition: background-color 0.2s ease;
 }
 
 .menu-navegacion a.enlace-reserva:hover {
+    background-color: var(--color-primario-oscuro);
+}
+.menu-navegacion a.Login-Boton, .menu-navegacion a.Register-Boton {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.menu-navegacion a.Login-Boton:hover,.menu-navegacion a.Register-Boton:hover {
     background-color: var(--color-primario-oscuro);
 }
 /* VERSIÓN HAMBURGUESA PARA CELULAR (MENOS DE 768px) */
@@ -85,8 +96,10 @@
         gap: 0;
         max-height: 0;
         overflow: hidden;
+        overflow-y: auto;
         transition: max-height 0.35s ease-in-out;
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+        z-index: 9999;
     }
 
     .menu-navegacion li {
@@ -100,7 +113,7 @@
         border-bottom: 1px solid var(--color-fondo);
     }
 
-    .menu-navegacion a.enlace-reserva {
+    .menu-navegacion a.enlace-reserva, .menu-navegacion a.Register-Boton, .menu-navegacion a.Login-Boton {
         border-radius: 0;
         margin: 0.5rem 1.5rem 1rem;
     }

@@ -30,67 +30,42 @@
         </ul>
     </nav>
 </header>
-<section class="Banner-servicios">
-    <img src="../img/Iconos/banner_2.png" alt="banner-servicios">
-</section>
-<section class="Nuestros-servicios">
-    <h2>Nuestros Servivios</h2>
-    <p>En Medikali cuidamos la salud del Adulto Mayor durante todas las etapas de su envejecimiento.</p>
-    <p>Contamos con un equipo especializado de médicos geriatras y otras especialidades, quienes juntos a enfermeras,
-        nutricionistas y terapistas le atenderan y ayudaran a mejorar la calidad de vida del
-        Adulto Mayor desde la comodidad y seguridad de su hogar y de forma presencial en consultorio.</p>
-    <p>Adicionalmente, brindamos una atención integral que incluye la toma de exámenes de laboratorio, cardiológicos y
-        de imágenes
-        (rayos X, ecografías) a domicilio para mayor seguridad y comodidad.</p>
-</section>
-<section class="servicios">
-    <h2>¿Como podemos ayudarte?</h2>
-    <h3>Algunos de nuestros servicios</h3>
-    <p>Medikali tiene para ti diferentes alternativas para que tu familia pueda ser atendida
-        de forma rápida y oportuna sin salir de casa.</p>
-    <ul class="lista-servicios">
-        <li class="tarjeta-servicio">
-            <img src="../img/Servicios/telemedicina.png" alt="Telemedicina">
-            <div class="contenido-servicio">
-                <h4>Telemedicina y Médico a domicilio</h4>
-                <p>Reúnete con un médico de forma virtual o presencial desde la comodidad de tu hogar.</p>
-            </div>
-        </li>
+<!-- Contenido principal agrupado en una sola etiqueta main -->
+<main class="auth-main">
+    <section class="auth-card">
+        <div class="auth-header">
+            <h2>Iniciar Sesión</h2>
+            <p>Ingresa a tu cuenta para gestionar tus citas y consultas médicas.</p>
+        </div>
 
-        <li class="tarjeta-servicio">
-            <img src="../img/Servicios/consultorio.png" alt="Consultorio">
-            <div class="contenido-servicio">
-                <h4>Consultorio Médico Presencial</h4>
-                <p>Visítanos para una atención de calidad con la seguridad de contar con las medidas de protección
-                    personal.</p>
+        <form class="auth-form" action="#" method="POST">
+            <div class="form-group">
+                <label for="login-email">Correo Electrónico</label>
+                <input type="email" id="login-email" name="email" placeholder="ejemplo@correo.com" required>
             </div>
-        </li>
 
-        <li class="tarjeta-servicio">
-            <img src="../img/Servicios/laboratorio.png" alt="Laboratorio">
-            <div class="contenido-servicio">
-                <h4>Laboratorio a domicilio</h4>
-                <p>Llegamos a tu domicilio para la toma de muestras.</p>
+            <div class="form-group">
+                <label for="login-password">Contraseña</label>
+                <input type="password" id="login-password" name="password" placeholder="••••••••" required>
             </div>
-        </li>
 
-        <li class="tarjeta-servicio">
-            <img src="../img/Servicios/examen_medico.png" alt="Examenes">
-            <div class="contenido-servicio">
-                <h4>Exámenes médicos</h4>
-                <p>Toma de exámenes médicos sin salir de casa.</p>
+            <div class="form-options">
+                <label class="checkbox-container">
+                    <input type="checkbox" name="remember">
+                    <span>Recordarme</span>
+                </label>
+                <a href="#" class="auth-link">¿Olvidaste tu contraseña?</a>
             </div>
-        </li>
 
-        <li class="tarjeta-servicio">
-            <img src="../img/Servicios/enfermeria.png" alt="Enfermería y terapias">
-            <div class="contenido-servicio">
-                <h4>Enfermería y terapias</h4>
-                <p>Servicio de enfermería a domicilio y terapias de rehabilitación física.</p>
-            </div>
-        </li>
-    </ul>
-</section>
+            <button type="submit" class="btn btn--primary btn--block">Ingresar</button>
+        </form>
+
+        <div class="auth-footer-text">
+            <p>¿Aún no tienes una cuenta? <a href="register.html">Regístrate aquí</a></p>
+        </div>
+    </section>
+</main>
+
 <footer class="footer-principal">
     <div class="contenido-footer">
         <div class="footer-columna">
@@ -113,7 +88,7 @@
                 <li><a href="../Staff/index.html">Staff</a></li>
                 <li><a href="../Nosotros/index.html">Nosotros</a></li>
                 <li><a href="../Blog/index.html">Blog</a></li>
-                <li><a href="../Contactanos/index.html">Contactanos</a></li>
+                <li><a href="../Contactanos/index.html">Contactenos</a></li>
                 <li><a href="../Agendar_Cita/index.html">Agendar Cita</a></li>
                 <li><a href="../Autth/login.html">Login</a></li>
                 <li><a href="../Autth/register.html">Register</a></li>
@@ -123,4 +98,4 @@
     </div>
 </footer>
 </body>
-</html>>
+</html>
