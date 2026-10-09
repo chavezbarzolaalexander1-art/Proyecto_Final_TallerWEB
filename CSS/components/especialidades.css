@@ -1,4 +1,56 @@
 
+.Especialidades {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 1.5rem;
+    text-align: center;
+}
+
+.lista-especialidades {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.tarjeta-especialidad {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem;
+    border-radius: 12px;
+    transition: transform 0.2s ease;
+}
+
+.tarjeta-especialidad:hover {
+    transform: translateY(-3px);
+}
+
+.icono-ciruclar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background-color: var(--color-blanco);
+    border: 2px solid var(--color-secundario);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(56, 189, 248, 0.15);
+}
+
+.icono-ciruclar img {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+}
+
+.tarjeta-especialidad span {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-texto);
+    text-transform: capitalize;
+}
 
 /* Contenedor general del tarifario */
 .seccion-tarifario {

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 :root {
     --color-primario: #0284c7;       /* Celeste corporativo médico */
     --color-primario-oscuro: #0369a1;/* Tono más oscuro para botones en hover */
@@ -9,7 +10,8 @@
     --color-texto-mutado: #64748b;   /* Gris neutro para notas y subtítulos */
     --color-borde: #e2e8f0;          /* Gris claro para líneas y divisiones */
     --color-fondo-footer: #0f172a;   /*Azull ocuro sobrio */
-    --fuente-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   /* --fuente-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+   --fuente-principal:  "Open Sans", sans-serif;;
 }
 *, *::before, *::after {
     box-sizing: border-box;

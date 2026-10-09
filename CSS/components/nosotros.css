@@ -3,6 +3,34 @@
    ========================================================================== */
 
 /* 1. Sección: ¿Quiénes somos? */
+.Banner-Nosotros {
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--color-fondo);
+}
+
+.Banner-Nosotros img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    animation:
+        /* name */         entradaBanner
+        /* duracion */     1.4s
+        /* ritmo */        ease-out
+        /* estado final */ forwards;
+}
+@keyframes entradaBanner {
+    0% {
+        opacity: 0;
+        transform: scale(1.05); /* Inicia un poquito más grande dentro de la caja */
+        filter: blur(4px);      /* Efecto desenfocado */
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);    /* Regresa a su tamaño original */
+        filter: blur(0);        /* Se enfoca por completo */
+    }
+}
 .seccion-quienes-somos {
     max-width: 900px;
     margin: 3.5rem auto 2.5rem;
