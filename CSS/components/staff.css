@@ -1,6 +1,52 @@
 /* ==========================================================================
    PÁGINA: STAFF (CABECERA INTRODUCTORIA)
    ========================================================================== */
+
+.Staff {
+    max-width: 1200px;
+    margin: 4rem auto 5rem;
+    padding: 0 1.5rem;
+    text-align: center;
+}
+
+.lista-staff {
+    display: flex;             /* Usamos flexbox para alinear en fila */
+    flex-direction: row;       /* Fuerza la alineación horizontal */
+    flex-wrap: wrap;           /* Si ya no caben en la pantalla, bajan a la siguiente fila */
+    justify-content: center;   /* Centra las tarjetas en la fila */
+    gap: 2rem;                 /* Separación uniforme entre cada tarjeta */
+    list-style: none;
+    padding: 0;
+}
+
+.tarjeta-doctore {
+    background-color: var(--color-blanco);
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--color-borde);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    width: 260px;              /* Ancho fijo para que entren 4 por fila en PC */
+    flex-shrink: 0;            /* Evita que se aplasten */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tarjeta-doctore:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.09);
+}
+
+/* Contenedor o ajuste de la foto del doctor */
+.imagen-doctore,
+.imagen-doctores {
+    width: 100%;
+    height: 240px;             /* Altura visible de la foto */
+    object-fit: contain;       /* Muestra la foto completa sin recortarla ni estirarla */
+    background-color: #f8fafc; /* Fondo neutro por si la foto no llena todo el marco */
+    padding-top: 1rem;         /* Pequeño respiro arriba */
+}
+
 .intro-staff {
     max-width: 850px;
     margin: 3.5rem auto 1.5rem;

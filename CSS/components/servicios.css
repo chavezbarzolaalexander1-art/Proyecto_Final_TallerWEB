@@ -1,7 +1,42 @@
 /* ==========================================================================
    PÁGINA: SERVICIOS
    ========================================================================== */
+.servicios {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 1.5rem;
+    text-align: center;
+}
+.lista-servicios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    text-align: left;
+}
 
+.tarjeta-servicio {
+    background-color: var(--color-blanco);
+    padding: 1.8rem;
+    border-radius: 12px;
+    border: 1px solid var(--color-borde);
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tarjeta-servicio:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+    border-color: var(--color-secundario);
+}
+
+.tarjeta-servicio img {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    object-fit: contain;
+}
 /* Banner de la sección servicios */
 .Banner-servicios {
     width: 100%;
@@ -13,6 +48,23 @@
     width: 100%;
     max-height: 400px;
     object-fit: cover;
+    animation:
+        /* name */         entradaBanner
+        /* duracion */     1.4s
+        /* ritmo */        ease-out
+        /* estado final */ forwards;
+}
+@keyframes entradaBanner {
+    0% {
+        opacity: 0;
+        transform: scale(1.05); /* Inicia un poquito más grande dentro de la caja */
+        filter: blur(4px);      /* Efecto desenfocado */
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);    /* Regresa a su tamaño original */
+        filter: blur(0);        /* Se enfoca por completo */
+    }
 }
 
 /* Bloque introductorio de presentación */

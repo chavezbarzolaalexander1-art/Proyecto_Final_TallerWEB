@@ -1,3 +1,9 @@
+body{
+    display: grid;
+    grid-template-rows: auto  1fr auto;
+    grid-auto-columns:  1fr ;
+    min-height: 100vh;
+}
 .cabecera-principal {
     background-color: var(--color-blanco);
     border-bottom: 3px solid var(--color-secundario); /* Línea celeste inferior decorativa */
