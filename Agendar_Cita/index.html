@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Document</title>
+    <title>Agendar Cita</title>
     <link rel="stylesheet" href="../CSS/main.css">
 </head>
 <body>
@@ -45,8 +45,28 @@
         <h3>Solicitud de Consulta Médica</h3>
         <p class="nota-formulario">Todos los campos marcados con (*) son obligatorios.</p>
 
-        <form action="#" method="POST" class="formulario-cita">
-            <fieldset>
+        <!-- Indicador de progreso -->
+        <div class="indicador-pasos">
+            <div class="paso-item paso-1-item activo" id="indicador-1">
+                <span class="numero">1</span>
+                <span class="texto">Paciente</span>
+            </div>
+            <div class="linea-progreso"></div>
+            <div class="paso-item paso-2-item" id="indicador-2">
+                <span class="numero">2</span>
+                <span class="texto">Contacto</span>
+            </div>
+            <div class="linea-progreso"></div>
+            <div class="paso-item paso-3-item" id="indicador-3">
+                <span class="numero">3</span>
+                <span class="texto">Cita</span>
+            </div>
+        </div>
+
+        <form action="#" method="POST" class="formulario-cita" id="form-cita">
+
+            <!-- PASO 1: DATOS DEL PACIENTE -->
+            <fieldset class="bloque-paso bloque-paso-1 activo">
                 <legend>Datos del Paciente</legend>
 
                 <div class="campo">
@@ -66,9 +86,15 @@
                     <input type="number" id="edad-paciente" name="edad_paciente" min="1" max="120" placeholder="Ej. 72"
                            required>
                 </div>
+
+                <div class="botones-paso">
+                    <div></div>
+                    <button type="button" class="btn-siguiente" onclick="siguientePaso(1)">Siguiente &rarr;</button>
+                </div>
             </fieldset>
 
-            <fieldset>
+            <!-- PASO 2: DATOS DE CONTACTO -->
+            <fieldset class="bloque-paso bloque-paso-2">
                 <legend>Datos de Contacto (Paciente o Familiar)</legend>
 
                 <div class="campo">
@@ -87,9 +113,15 @@
                     <label for="correo-contacto">Correo electrónico</label>
                     <input type="email" id="correo-contacto" name="correo_contacto" placeholder="correo@ejemplo.com">
                 </div>
+
+                <div class="botones-paso">
+                    <button type="button" class="btn-anterior" onclick="anteriorPaso(2)">&larr; Anterior</button>
+                    <button type="button" class="btn-siguiente" onclick="siguientePaso(2)">Siguiente &rarr;</button>
+                </div>
             </fieldset>
 
-            <fieldset>
+            <!-- PASO 3: DETALLES DE LA CITA -->
+            <fieldset class="bloque-paso bloque-paso-3">
                 <legend>Detalles de la Cita</legend>
 
                 <div class="campo">
@@ -143,17 +175,21 @@
                               placeholder="Describe brevemente las molestias, antecedentes o dudas médicas del paciente..."
                               required></textarea>
                 </div>
+
+                <div class="campo-terminos">
+                    <label for="terminos">
+                        <input type="checkbox" id="terminos" name="terminos" required>
+                        Acepto las políticas de privacidad y el tratamiento de datos de salud.
+                    </label>
+                </div>
+
+                <div class="botones-paso">
+                    <button type="button" class="btn-anterior" onclick="anteriorPaso(3)">&larr; Anterior</button>
+                    <button type="submit" class="boton-enviar-cita">Enviar solicitud de cita</button>
+                </div>
             </fieldset>
 
-            <div class="campo-terminos">
-                <label for="terminos">
-                    <input type="checkbox" id="terminos" name="terminos" required>
-                    Acepto las políticas de privacidad y el tratamiento de datos de salud.
-                </label>
-            </div>
-            <button type="submit" class="boton-enviar-cita">Enviar solicitud de cita</button>
         </form>
-
     </section>
 </main>
 <footer class="footer-principal">
@@ -187,5 +223,6 @@
 
     </div>
 </footer>
+<script src="agenda.js"></script>
 </body>
 </html>
