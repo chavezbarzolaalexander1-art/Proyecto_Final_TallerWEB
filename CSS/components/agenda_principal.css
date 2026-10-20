@@ -1,4 +1,3 @@
-
 .seccion-intro-reserva {
     max-width: 800px;
     margin: 3.5rem auto 1.5rem;
@@ -17,7 +16,6 @@
     font-size: 1.05rem;
     line-height: 1.7;
 }
-
 
 .seccion-formulario-cita {
     max-width: 760px;
@@ -43,13 +41,82 @@
     margin-bottom: 2rem;
 }
 
-/* Agrupación por fieldset */
-.formulario-cita fieldset {
+/* ==========================================================================
+   BARRA DE PASOS (INDICADOR DE PROGRESO)
+   ========================================================================== */
+.indicador-pasos {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+}
+
+.paso-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.paso-item .numero {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--color-borde);
+    color: var(--color-texto-mutado);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.paso-item .texto {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-texto-mutado);
+}
+
+/* Estado activo del paso actual */
+.paso-item.activo .numero {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+}
+
+.paso-item.activo .texto {
+    color: var(--color-primario-oscuro);
+}
+
+.linea-progreso {
+    flex: 1;
+    height: 3px;
+    background-color: var(--color-borde);
+    margin: 0 0.8rem 1.2rem;
+}
+
+/* ==========================================================================
+   ESTRUCTURA DE LOS PASOS DEL FORMULARIO
+   ========================================================================== */
+.bloque-paso {
+    display: none; /* Oculto por defecto */
     border: 1px solid var(--color-borde);
     border-radius: 10px;
     padding: 1.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     background-color: #fafcfe;
+}
+
+/* Solo se muestra si tiene la clase activo */
+.bloque-paso.activo {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .formulario-cita legend {
@@ -58,7 +125,6 @@
     color: var(--color-primario);
     padding: 0 0.6rem;
 }
-
 
 .campo {
     display: flex;
@@ -77,7 +143,6 @@
     color: var(--color-texto);
 }
 
-/* Entradas de texto, selects y textarea */
 .campo input[type="text"],
 .campo input[type="number"],
 .campo input[type="tel"],
@@ -97,7 +162,6 @@
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-
 .campo input:focus,
 .campo select:focus,
 .campo textarea:focus {
@@ -110,9 +174,8 @@
     min-height: 100px;
 }
 
-/* Checkbox de términos */
 .campo-terminos {
-    margin: 1.5rem 0 2rem;
+    margin: 1.5rem 0;
 }
 
 .campo-terminos label {
@@ -131,27 +194,53 @@
     cursor: pointer;
 }
 
-/* Botón de envío */
+/* ==========================================================================
+   BOTONES DE NAVEGACIÓN
+   ========================================================================== */
+.botones-paso {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+    gap: 1rem;
+}
+
+.btn-siguiente,
+.btn-anterior,
 .boton-enviar-cita {
-    width: 100%;
-    background-color: var(--color-primario);
-    color: var(--color-blanco);
-    border: none;
-    padding: 0.9rem 1.5rem;
-    font-size: 1.05rem;
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
     font-weight: 600;
     font-family: inherit;
     border-radius: 8px;
+    border: none;
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
+.btn-siguiente,
+.boton-enviar-cita {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.2);
+}
+
+.btn-siguiente:hover,
 .boton-enviar-cita:hover {
     background-color: var(--color-primario-oscuro);
     transform: translateY(-2px);
 }
 
+.btn-anterior {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    border: 1px solid var(--color-borde);
+}
+
+.btn-anterior:hover {
+    background-color: #e2e8f0;
+}
 
 @media (max-width: 768px) {
     .seccion-intro-reserva {
@@ -167,7 +256,7 @@
         padding: 1.8rem 1.2rem;
     }
 
-    .formulario-cita fieldset {
+    .bloque-paso {
         padding: 1.2rem 0.9rem;
     }
 
