@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mi Perfil - Meddi</title>
+    <link rel="stylesheet" href="../CSS/main.css">
+</head>
+<body>
+<header class="cabecera-principal">
+    <nav class="barra-navegacion">
+        <a href="../index.html"> <img src="../img/Iconos/medikali.png" alt="logo-nav" class="logo-img"></a>
+        <input type="checkbox" id="check-menu" class="check-menu">
+        <label for="check-menu" class="icono-hamburguesa" aria-label="Abrir menú">
+            <span class="linea"></span>
+            <span class="linea"></span>
+            <span class="linea"></span>
+        </label>
+        <ul class="menu-navegacion">
+            <li class="Boton-menu"><a href="../index.html">Inicio</a></li>
+            <li class="Boton-menu"><a href="../Servicios/index.html">Servicios</a></li>
+            <li class="Boton-menu"><a href="../Especialidades/index.html">Especialidades</a></li>
+            <li class="Boton-menu"><a href="../Staff/index.html">Staff</a></li>
+            <li class="Boton-menu"><a href="../Nosotros/index.html">Nosotros</a></li>
+            <li class="Boton-menu"><a href="../Blog/index.html">Blog</a></li>
+            <li class="Boton-menu"><a href="../Contactanos/index.html">Contactanos</a></li>
+            <li class="Boton-menu"><a href="../Agendar_Cita/index.html" class="enlace-reserva">Agendar Cita</a></li>
+            <li class="Boton-menu"><a href="../Autth/login.html" class="Login-Boton">Login</a></li>
+            <li class="Boton-menu"><a href="../Autth/register.html" class="Register-Boton">Register</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="perfil-main">
+    <section class="contenedor-perfil">
+        <div class="tarjeta-perfil-header">
+            <div class="avatar-usuario">👤</div>
+            <h2 id="perfil-nombre-header">Cargando usuario...</h2>
+            <p class="rol-usuario">Paciente Registrado</p>
+        </div>
+
+        <div class="tarjeta-perfil-detalle">
+            <h3>Información Personal</h3>
+            <div class="grid-datos-perfil">
+                <div class="dato-item">
+                    <span class="label">Nombres y Apellidos</span>
+                    <p id="perfil-nombre-completo">-</p>
+                </div>
+                <div class="dato-item">
+                    <span class="label">Documento de Identidad (DNI)</span>
+                    <p id="perfil-dni">-</p>
+                </div>
+                <div class="dato-item">
+                    <span class="label">Teléfono / WhatsApp</span>
+                    <p id="perfil-telefono">-</p>
+                </div>
+                <div class="dato-item">
+                    <span class="label">Correo Electrónico</span>
+                    <p id="perfil-email">-</p>
+                </div>
+            </div>
+
+            <div class="acciones-perfil">
+                <a href="../Agendar_Cita/index.html" class="btn-reserva-perfil">Solicitar Nueva Cita</a>
+                <button type="button" id="btn-cerrar-sesion" class="btn-logout">Cerrar Sesión</button>
+                <button type="button" id="btn-eliminar-cuenta" class="btn-delete">Eliminar Cuenta</button>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer-principal">
+    <div class="contenido-footer">
+        <div class="footer-columna">
+            <img src="../img/Iconos/medikali.png" alt="logo medikali" class="logo-footer">
+            <p>Cuidamos la salud del Adulto Mayor durante todas las etapas del envejecimiento.</p>
+        </div>
+        <div class="footer-columna">
+            <h3>Contactanos</h3>
+            <p>Celular: <a href="tel:+51960398072">+51 960 398 072</a></p>
+            <p><a href="mailto:contacto@medikali.pe">contacto@medikali.pe</a></p>
+            <p>Perú</p>
+        </div>
+        <div class="footer-columna">
+            <h3>Navegar</h3>
+            <ul class="footer-limks">
+                <li><a href="../Servicios/index.html">Servicios</a></li>
+                <li><a href="../Especialidades/index.html">Especialidades</a></li>
+                <li><a href="../Staff/index.html">Staff</a></li>
+                <li><a href="../Nosotros/index.html">Nosotros</a></li>
+                <li><a href="../Blog/index.html">Blog</a></li>
+                <li><a href="../Contactanos/index.html">Contactanos</a></li>
+                <li><a href="../Agendar_Cita/index.html">Agendar Cita</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="../js/perfil.js"></script>
+</body>
+</html>

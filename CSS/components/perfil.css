@@ -1,0 +1,194 @@
+/* ========================================================
+   COMPONENTE: VISTA DE PERFIL (perfil.css)
+   ======================================================== */
+
+/* Botón "Mi Perfil" en la barra de navegación */
+.menu-navegacion a.Perfil-Boton {
+    background-color: var(--color-primario-oscuro);
+    color: var(--color-blanco);
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.menu-navegacion a.Perfil-Boton:hover {
+    background-color: var(--color-primario);
+    transform: translateY(-1px);
+}
+
+/* Estructura Principal */
+.perfil-main {
+    min-height: calc(100vh - 200px);
+    padding: 3.5rem 1.5rem;
+    background-color: var(--color-fondo);
+}
+
+.contenedor-perfil {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Tarjeta Encabezado (Avatar y Rol) */
+.tarjeta-perfil-header {
+    background-color: var(--color-blanco);
+    padding: 2.5rem 2rem;
+    border-radius: 14px;
+    text-align: center;
+    border: 1px solid var(--color-borde);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+.avatar-usuario {
+    width: 80px;
+    height: 80px;
+    background-color: var(--color-fondo);
+    border: 3px solid var(--color-secundario);
+    border-radius: 50%;
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.tarjeta-perfil-header h2 {
+    font-size: 1.8rem;
+    color: var(--color-primario-oscuro);
+    margin-bottom: 0.2rem;
+}
+
+.rol-usuario {
+    font-size: 0.95rem;
+    color: var(--color-texto-mutado);
+    margin-bottom: 0;
+}
+
+/* Tarjeta de Datos Personales */
+.tarjeta-perfil-detalle {
+    background-color: var(--color-blanco);
+    padding: 2.5rem 2rem;
+    border-radius: 14px;
+    border: 1px solid var(--color-borde);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+.tarjeta-perfil-detalle h3 {
+    font-size: 1.3rem;
+    color: var(--color-primario-oscuro);
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--color-fondo);
+    padding-bottom: 0.6rem;
+}
+
+.grid-datos-perfil {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.dato-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.dato-item .label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-texto-mutado);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.dato-item p {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--color-texto);
+    margin-bottom: 0;
+}
+
+/* Botones de Acción */
+.acciones-perfil {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.btn-reserva-perfil {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    padding: 0.85rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-reserva-perfil:hover {
+    background-color: var(--color-primario-oscuro);
+    color: var(--color-blanco);
+    transform: translateY(-2px);
+}
+
+.btn-logout {
+    background-color: #ef4444;
+    color: var(--color-blanco);
+    border: none;
+    padding: 0.85rem 1.5rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-logout:hover {
+    background-color: #dc2626;
+    transform: translateY(-2px);
+}
+/* Botón de Eliminar Cuenta */
+.btn-delete {
+    background-color: #64748b;
+    color: var(--color-blanco);
+    border: none;
+    padding: 0.85rem 1.5rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-delete:hover {
+    background-color: #991b1b; /* Rojo oscuro de advertencia */
+    transform: translateY(-2px);
+}
+
+/* Diseño Responsive (Móviles) */
+@media (max-width: 768px) {
+    .perfil-main {
+        padding: 2rem 1rem;
+    }
+
+    .tarjeta-perfil-header,
+    .tarjeta-perfil-detalle {
+        padding: 1.8rem 1.2rem;
+    }
+
+    .acciones-perfil {
+        flex-direction: column;
+    }
+
+    .btn-reserva-perfil,
+    .btn-logout {
+        width: 100%;
+        text-align: center;
+    }
+}
