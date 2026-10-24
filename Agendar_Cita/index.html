@@ -146,10 +146,18 @@
                     </select>
                 </div>
 
+                <!-- NUEVO CAMPO: Selector dinámico de doctores -->
+                <div class="campo">
+                    <label for="doctor">Doctor especialista *</label>
+                    <select id="doctor" name="doctor" required disabled>
+                        <option value="" disabled selected>Primero selecciona una especialidad</option>
+                    </select>
+                </div>
+
                 <div class="campo">
                     <label for="modalidad">Modalidad de atención *</label>
-                    <select id="modalidad" name="modalidad" required>
-                        <option value="" disabled selected>Selecciona una modalidad</option>
+                    <select id="modalidad" name="modalidad" required disabled>
+                        <option value="" disabled selected>Selecciona modalidad</option>
                         <option value="presencial">Presencial en sede</option>
                         <option value="virtual">Teleconsulta (Virtual)</option>
                     </select>
@@ -157,12 +165,12 @@
 
                 <div class="campo">
                     <label for="fecha-tentativa">Fecha preferida para la atención *</label>
-                    <input type="date" id="fecha-tentativa" name="fecha_tentativa" required>
+                    <input type="date" id="fecha-tentativa" name="fecha_tentativa" required disabled>
                 </div>
 
                 <div class="campo">
                     <label for="turno-preferido">Turno de preferencia *</label>
-                    <select id="turno-preferido" name="turno_preferido" required>
+                    <select id="turno-preferido" name="turno_preferido" required disabled>
                         <option value="" disabled selected>Selecciona turno</option>
                         <option value="manana">Mañana (8:00 am - 1:00 pm)</option>
                         <option value="tarde">Tarde (2:00 pm - 7:00 pm)</option>
@@ -188,7 +196,6 @@
                     <button type="submit" class="boton-enviar-cita">Enviar solicitud de cita</button>
                 </div>
             </fieldset>
-
         </form>
     </section>
 </main>
