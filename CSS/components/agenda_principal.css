@@ -16,7 +16,23 @@
     font-size: 1.05rem;
     line-height: 1.7;
 }
+.campo input:disabled,
+.campo select:disabled,
+.campo textarea:disabled {
+    background-color: #f1f5f9;
+    color: #94a3b8;
+    border-color: #cbd5e1;
+    cursor: not-allowed;
+    opacity: 0.7;
+    box-shadow: none;
+}
 
+/* Opciones deshabilitadas dentro de selectores (Turnos agotados) */
+.campo select option:disabled {
+    color: #94a3b8;
+    background-color: #f8fafc;
+    font-style: italic;
+}
 .seccion-formulario-cita {
     max-width: 760px;
     margin: 0 auto 5rem;
@@ -255,12 +271,17 @@
         margin: 0 1rem 3.5rem;
         padding: 1.8rem 1.2rem;
     }
-
+    .campo {
+        margin-bottom: 1.5rem;
+    }
     .bloque-paso {
         padding: 1.2rem 0.9rem;
     }
 
     .campo label {
         font-size: 0.9rem;
+    }
+    .indicador-pasos {
+        padding: 0 3rem;
     }
 }
