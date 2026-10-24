@@ -119,7 +119,7 @@ body{
         border-bottom: 1px solid var(--color-fondo);
     }
 
-    .menu-navegacion a.enlace-reserva, .menu-navegacion a.Register-Boton, .menu-navegacion a.Login-Boton {
+    .menu-navegacion a.enlace-reserva, .menu-navegacion a.Register-Boton, .menu-navegacion a.Login-Boton , .menu-navegacion a.Perfil-Boton{
         border-radius: 0;
         margin: 0.5rem 1.5rem 1rem;
     }
