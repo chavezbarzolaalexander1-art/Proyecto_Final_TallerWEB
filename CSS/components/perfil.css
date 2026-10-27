@@ -2,6 +2,12 @@
    COMPONENTE: VISTA DE PERFIL (perfil.css)
    ======================================================== */
 
+/* Evitar que cualquier elemento desborde la pantalla horizontalmente */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 /* Botón "Mi Perfil" en la barra de navegación */
 .menu-navegacion a.Perfil-Boton {
     background-color: var(--color-primario-oscuro);
@@ -9,186 +15,234 @@
     padding: 0.5rem 1.2rem;
     border-radius: 6px;
     font-weight: 600;
-    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .menu-navegacion a.Perfil-Boton:hover {
     background-color: var(--color-primario);
-    transform: translateY(-1px);
 }
 
 /* Estructura Principal */
 .perfil-main {
+    width: 100%;
+    max-width: 100%;
     min-height: calc(100vh - 200px);
-    padding: 3.5rem 1.5rem;
+    padding: 2rem 1rem;
     background-color: var(--color-fondo);
+    box-sizing: border-box;
+    overflow-x: hidden; /* Seguridad para que la página nunca tenga scroll horizontal */
 }
 
+/* Contenedor Adaptativo */
 .contenedor-perfil {
-    max-width: 800px;
+    width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
+    min-width: 0; /* Permite a los contenedores flexibles encogerse en móviles */
 }
 
-/* Tarjeta Encabezado (Avatar y Rol) */
-.tarjeta-perfil-header {
-    background-color: var(--color-blanco);
-    padding: 2.5rem 2rem;
-    border-radius: 14px;
-    text-align: center;
-    border: 1px solid var(--color-borde);
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+@media screen and (min-width: 768px) {
+    .contenedor-perfil {
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        align-items: start;
+        gap: 1.5rem;
+    }
 }
 
+/* Ocultar avatar */
 .avatar-usuario {
-    width: 80px;
-    height: 80px;
-    background-color: var(--color-fondo);
-    border: 3px solid var(--color-secundario);
-    border-radius: 50%;
-    font-size: 2.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1rem;
+    display: none;
 }
 
-.tarjeta-perfil-header h2 {
-    font-size: 1.8rem;
+/* Tarjetas del Perfil */
+.tarjeta-perfil-detalle,
+.tarjeta-perfil-citas {
+    width: 100%;
+    min-width: 0; /* Evita que la tabla fuerce el ancho de la tarjeta */
+    background-color: var(--color-blanco);
+    padding: 1.5rem 1.2rem;
+    border-radius: 12px;
+    border: 1px solid var(--color-borde);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    box-sizing: border-box;
+}
+
+/* Columna Izquierda: Datos Personales */
+.encabezado-usuario {
+    margin-bottom: 1.2rem;
+    border-bottom: 2px solid var(--color-fondo);
+    padding-bottom: 0.8rem;
+}
+
+.encabezado-usuario h2 {
+    font-size: 1.4rem;
     color: var(--color-primario-oscuro);
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.3rem;
+    word-break: break-word;
 }
 
 .rol-usuario {
-    font-size: 0.95rem;
-    color: var(--color-texto-mutado);
-    margin-bottom: 0;
-}
-
-/* Tarjeta de Datos Personales */
-.tarjeta-perfil-detalle {
-    background-color: var(--color-blanco);
-    padding: 2.5rem 2rem;
-    border-radius: 14px;
-    border: 1px solid var(--color-borde);
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-primario);
+    text-transform: uppercase;
+    background-color: var(--color-fondo);
+    padding: 0.25rem 0.6rem;
+    border-radius: 20px;
+    display: inline-block;
 }
 
 .tarjeta-perfil-detalle h3 {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     color: var(--color-primario-oscuro);
-    margin-bottom: 1.5rem;
-    border-bottom: 2px solid var(--color-fondo);
-    padding-bottom: 0.6rem;
+    margin-bottom: 1rem;
 }
 
 .grid-datos-perfil {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 2.5rem;
-}
-
-.dato-item {
     display: flex;
     flex-direction: column;
-    gap: 0.3rem;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .dato-item .label {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     font-weight: 700;
     color: var(--color-texto-mutado);
     text-transform: uppercase;
-    letter-spacing: 0.5px;
 }
 
 .dato-item p {
-    font-size: 1.05rem;
+    font-size: 0.95rem;
     font-weight: 600;
     color: var(--color-texto);
     margin-bottom: 0;
+    word-break: break-word;
 }
 
 /* Botones de Acción */
 .acciones-perfil {
     display: flex;
-    gap: 1rem;
-    justify-content: flex-end;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 0.6rem;
 }
 
-.btn-reserva-perfil {
-    background-color: var(--color-primario);
-    color: var(--color-blanco);
-    padding: 0.85rem 1.5rem;
+.btn-logout,
+.btn-delete {
+    width: 100%;
+    border: none;
+    padding: 0.75rem;
     border-radius: 8px;
+    font-size: 0.9rem;
     font-weight: 600;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-.btn-reserva-perfil:hover {
-    background-color: var(--color-primario-oscuro);
-    color: var(--color-blanco);
-    transform: translateY(-2px);
+    font-family: inherit;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
 }
 
 .btn-logout {
     background-color: #ef4444;
     color: var(--color-blanco);
-    border: none;
-    padding: 0.85rem 1.5rem;
-    border-radius: 8px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    font-family: inherit;
-    cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .btn-logout:hover {
     background-color: #dc2626;
-    transform: translateY(-2px);
 }
-/* Botón de Eliminar Cuenta */
+
 .btn-delete {
     background-color: #64748b;
     color: var(--color-blanco);
-    border: none;
-    padding: 0.85rem 1.5rem;
-    border-radius: 8px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    font-family: inherit;
-    cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .btn-delete:hover {
-    background-color: #991b1b; /* Rojo oscuro de advertencia */
-    transform: translateY(-2px);
+    background-color: #991b1b;
 }
 
-/* Diseño Responsive (Móviles) */
-@media (max-width: 768px) {
-    .perfil-main {
-        padding: 2rem 1rem;
-    }
+/* Columna Derecha: Citas Agendadas */
+.cabecera-citas {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.2rem;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
 
-    .tarjeta-perfil-header,
-    .tarjeta-perfil-detalle {
-        padding: 1.8rem 1.2rem;
-    }
+.cabecera-citas h3 {
+    font-size: 1.2rem;
+    color: var(--color-primario-oscuro);
+    margin-bottom: 0;
+}
 
-    .acciones-perfil {
-        flex-direction: column;
-    }
+.btn-borrar-citas {
+    background-color: #ef4444;
+    color: var(--color-blanco);
+    border: none;
+    padding: 0.55rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
 
-    .btn-reserva-perfil,
-    .btn-logout {
-        width: 100%;
-        text-align: center;
-    }
+.btn-borrar-citas:disabled {
+    background-color: #cbd5e1;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* DESPLAZAMIENTO HORIZONTAL EXCLUSIVAMENTE DENTRO DEL RECUADRO DE LA TABLA */
+.contenedor-tabla-citas {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto; /* Habilita la barra deslizable únicamente para la tabla */
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.tabla-citas-perfil {
+    width: 100%;
+    min-width: 580px; /* Mantiene la legibilidad de las columnas al deslizar */
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+.tabla-citas-perfil th,
+.tabla-citas-perfil td {
+    padding: 0.75rem 0.9rem;
+    border-bottom: 1px solid var(--color-borde);
+    white-space: nowrap;
+}
+
+.tabla-citas-perfil th {
+    background-color: #f8fafc;
+    color: var(--color-primario-oscuro);
+    font-weight: 700;
+}
+
+.tabla-citas-perfil tbody tr:hover {
+    background-color: var(--color-fondo);
+}
+
+.badge-turno {
+    padding: 0.2rem 0.55rem;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.badge-turno.manana {
+    background-color: #e0f2fe;
+    color: #0369a1;
+}
+
+.badge-turno.tarde {
+    background-color: #fef3c7;
+    color: #b45309;
 }

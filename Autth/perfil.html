@@ -33,13 +33,14 @@
 
 <main class="perfil-main">
     <section class="contenedor-perfil">
-        <div class="tarjeta-perfil-header">
-            <div class="avatar-usuario">👤</div>
-            <h2 id="perfil-nombre-header">Cargando usuario...</h2>
-            <p class="rol-usuario">Paciente Registrado</p>
-        </div>
 
+        <!-- COLUMNA IZQUIERDA: DATOS PERSONALES -->
         <div class="tarjeta-perfil-detalle">
+            <div class="encabezado-usuario">
+                <h2 id="perfil-nombre-header">Cargando usuario...</h2>
+                <span class="rol-usuario">Paciente Registrado</span>
+            </div>
+
             <h3>Información Personal</h3>
             <div class="grid-datos-perfil">
                 <div class="dato-item">
@@ -61,11 +62,38 @@
             </div>
 
             <div class="acciones-perfil">
-                <a href="../Agendar_Cita/index.html" class="btn-reserva-perfil">Solicitar Nueva Cita</a>
                 <button type="button" id="btn-cerrar-sesion" class="btn-logout">Cerrar Sesión</button>
                 <button type="button" id="btn-eliminar-cuenta" class="btn-delete">Eliminar Cuenta</button>
             </div>
         </div>
+
+        <!-- COLUMNA DERECHA: TABLA DE CITAS -->
+        <div class="tarjeta-perfil-citas">
+            <div class="cabecera-citas">
+                <h3>Mis Citas Agendadas</h3>
+                <button type="button" id="btn-borrar-citas" class="btn-borrar-citas" disabled>Borrar seleccionadas</button>
+            </div>
+
+            <div class="contenedor-tabla-citas">
+                <table class="tabla-citas-perfil">
+                    <thead>
+                    <tr>
+                        <th><input type="checkbox" id="check-seleccionar-todo" title="Seleccionar todas las citas"></th>
+                        <th>Paciente</th>
+                        <th>Especialidad</th>
+                        <th>Doctor</th>
+                        <th>Fecha</th>
+                        <th>Turno</th>
+                        <th>Modalidad</th>
+                    </tr>
+                    </thead>
+                    <tbody id="cuerpo-tabla-citas">
+                    <!-- Se puebla dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
     </section>
 </main>
 
@@ -96,6 +124,7 @@
     </div>
 </footer>
 
+<script src="../Agendar_Cita/agenda.js"></script>
 <script src="../js/main.js"></script>
 <script src="../js/perfil.js"></script>
 </body>
