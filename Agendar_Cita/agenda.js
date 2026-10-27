@@ -2,31 +2,16 @@
 const DOCTORES_SISTEMA = [
     {id: 'doc-1', nombre: 'Dra. Ana Lucía Torres', especialidad: 'geriatria', cuposMax: {manana: 2, tarde: 3}},
     {id: 'doc-2', nombre: 'Dr. Robert Jose Urtado', especialidad: 'medicina-interna', cuposMax: {manana: 3, tarde: 0}},
-    {
-        id: 'doc-3',
-        nombre: 'Dra. Aramis Rafael Carranza',
-        especialidad: 'endocrinologia',
-        cuposMax: {manana: 1, tarde: 2}
-    },
+    {id: 'doc-3', nombre: 'Dra. Aramis Rafael Carranza', especialidad: 'endocrinologia', cuposMax: {manana: 1, tarde: 2}},
     {id: 'doc-4', nombre: 'Dra. Susan Perez Lira', especialidad: 'nutricion', cuposMax: {manana: 4, tarde: 2}},
     {id: 'doc-5', nombre: 'Dra. Luna Rojas Perez', especialidad: 'psiquiatria', cuposMax: {manana: 0, tarde: 2}},
     {id: 'doc-6', nombre: 'Dra. Valeria Vega Morales', especialidad: 'dermatologia', cuposMax: {manana: 2, tarde: 2}},
     {id: 'doc-7', nombre: 'Dr. Jorge Delgado Rios', especialidad: 'neumologia', cuposMax: {manana: 3, tarde: 1}},
-    {
-        id: 'doc-8',
-        nombre: 'Dra. María Claudia Campos',
-        especialidad: 'gastroenterologia',
-        cuposMax: {manana: 2, tarde: 2}
-    },
+    {id: 'doc-8', nombre: 'Dra. María Claudia Campos', especialidad: 'gastroenterologia', cuposMax: {manana: 2, tarde: 2}},
     {id: 'doc-9', nombre: 'Dra. Salome Torres Basquez', especialidad: 'cardiologia', cuposMax: {manana: 2, tarde: 0}},
     {id: 'doc-10', nombre: 'Dr. Carlos Mendoza Silva', especialidad: 'neurologia', cuposMax: {manana: 1, tarde: 3}},
     {id: 'doc-11', nombre: 'Dra. Betty Quispe Alca', especialidad: 'oftalmologia', cuposMax: {manana: 2, tarde: 2}},
-    {
-        id: 'doc-12',
-        nombre: 'Dra. Patricia Cordova Salazar',
-        especialidad: 'reumatologia',
-        cuposMax: {manana: 3, tarde: 3}
-    }
+    {id: 'doc-12', nombre: 'Dra. Patricia Cordova Salazar', especialidad: 'reumatologia', cuposMax: {manana: 3, tarde: 3}}
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -35,15 +20,12 @@ document.addEventListener('DOMContentLoaded', () => {
     inicializarFlujoCascadaCitas();
 });
 
-// ==========================================================================
 // 1. REINICIO DIARIO AUTOMÁTICO DE CUPOS
-// ==========================================================================
 function inicializarReinicioDiarioCupos() {
     const hoyStr = obtenerFechaHoyISO();
     const ultimaFechaGuardada = localStorage.getItem('meddi_fecha_cupos');
 
     if (ultimaFechaGuardada !== hoyStr) {
-        // Es un nuevo día o primera ejecución: reiniciamos los cupos con base en la capacidad por defecto
         const cuposIniciales = {};
         DOCTORES_SISTEMA.forEach(doc => {
             cuposIniciales[doc.id] = {...doc.cuposMax};
@@ -62,9 +44,7 @@ function guardarCuposActuales(cupos) {
     localStorage.setItem('meddi_cupos_doctores', JSON.stringify(cupos));
 }
 
-// ==========================================================================
-// 2. RESTRICCIÓN DE FECHA MÍNIMA (Solo a partir de mañana)
-// ==========================================================================
+// 2. RESTRICCIÓN DE FECHA MÍNIMA
 function obtenerFechaHoyISO() {
     const hoy = new Date();
     const yyyy = hoy.getFullYear();
@@ -88,9 +68,7 @@ function configurarRestriccionFechaMinima() {
     inputFecha.setAttribute('min', fechaMinimaISO);
 }
 
-// ==========================================================================
-// 3. DEPENDENCIA EN CASCADA Y FILTRADO DINÁMICO
-// ==========================================================================
+// 3. DEPENDENCIA EN CASCADA Y RESERVA DE CITA
 function inicializarFlujoCascadaCitas() {
     const selectEspecialidad = document.getElementById('especialidad');
     const selectDoctor = document.getElementById('doctor');
@@ -101,11 +79,8 @@ function inicializarFlujoCascadaCitas() {
 
     if (!selectEspecialidad || !selectDoctor) return;
 
-    // EVENTO 1: Cambio de Especialidad
     selectEspecialidad.addEventListener('change', () => {
         const especialidadSeleccionada = selectEspecialidad.value;
-
-        // Limpiar selector de doctor
         selectDoctor.innerHTML = '';
 
         if (!especialidadSeleccionada) {
@@ -115,7 +90,6 @@ function inicializarFlujoCascadaCitas() {
             return;
         }
 
-        // Filtrar doctores por especialidad
         const doctoresFiltrados = DOCTORES_SISTEMA.filter(doc => doc.especialidad === especialidadSeleccionada);
 
         if (doctoresFiltrados.length === 0) {
@@ -137,7 +111,6 @@ function inicializarFlujoCascadaCitas() {
         resetearCamposDependientes([selectModalidad, inputFecha, selectTurno]);
     });
 
-    // EVENTO 2: Cambio de Doctor
     selectDoctor.addEventListener('change', () => {
         if (selectDoctor.value) {
             selectModalidad.disabled = false;
@@ -145,13 +118,11 @@ function inicializarFlujoCascadaCitas() {
         } else {
             resetearCamposDependientes([selectModalidad, inputFecha, selectTurno]);
         }
-        // Si ya había fecha, re-validar los turnos con el nuevo doctor
         if (inputFecha.value) {
             validarTurnosPorDisponibilidad();
         }
     });
 
-    // EVENTO 3: Cambio de Fecha
     inputFecha.addEventListener('change', () => {
         if (inputFecha.value) {
             selectTurno.disabled = false;
@@ -161,7 +132,6 @@ function inicializarFlujoCascadaCitas() {
         }
     });
 
-    // Envío del formulario: descuento de cupo
     if (formCita) {
         formCita.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -170,13 +140,35 @@ function inicializarFlujoCascadaCitas() {
             const turno = selectTurno.value;
 
             if (descontarCupo(docId, turno)) {
+                // GUARDAR CITA EN LOCALSTORAGE
+                const emailSesion = localStorage.getItem('meddi_sesion_activa_email');
+                const correoContacto = document.getElementById('correo-contacto')?.value.trim();
+                const docObj = DOCTORES_SISTEMA.find(d => d.id === docId);
+
+                const nuevaCita = {
+                    id: 'cita-' + Date.now(),
+                    emailUsuario: (emailSesion || correoContacto || '').toLowerCase(),
+                    pacienteNombre: document.getElementById('nombre-paciente').value.trim(),
+                    pacienteDni: document.getElementById('dni-paciente').value.trim(),
+                    especialidad: selectEspecialidad.options[selectEspecialidad.selectedIndex].text,
+                    doctorId: docId,
+                    doctorNombre: docObj ? docObj.nombre : 'Médico Especialista',
+                    modalidad: selectModalidad.options[selectModalidad.selectedIndex].text,
+                    fecha: inputFecha.value,
+                    turno: turno,
+                    motivo: document.getElementById('motivo-consulta').value.trim()
+                };
+
+                const citasExistentes = JSON.parse(localStorage.getItem('meddi_citas')) || [];
+                citasExistentes.push(nuevaCita);
+                localStorage.setItem('meddi_citas', JSON.stringify(citasExistentes));
+
                 alert('¡Solicitud de cita enviada exitosamente! Tu cupo ha sido reservado.');
                 formCita.reset();
-                // Bloquear nuevamente por flujo cascada
                 selectDoctor.disabled = true;
                 selectDoctor.innerHTML = '<option value="" disabled selected>Primero selecciona una especialidad</option>';
                 resetearCamposDependientes([selectModalidad, inputFecha, selectTurno]);
-                window.location.href = '../index.html';
+                window.location.href = '../Autth/perfil.html';
             } else {
                 alert('El turno seleccionado ya no cuenta con cupos disponibles.');
             }
@@ -192,9 +184,6 @@ function resetearCamposDependientes(elementos) {
     });
 }
 
-// ==========================================================================
-// 4. BLOQUEO DE TURNOS POR DISPONIBILIDAD DE CUPOS
-// ==========================================================================
 function validarTurnosPorDisponibilidad() {
     const selectDoctor = document.getElementById('doctor');
     const selectTurno = document.getElementById('turno-preferido');
@@ -228,7 +217,6 @@ function validarTurnosPorDisponibilidad() {
         }
     }
 
-    // Si la opción que estaba seleccionada se deshabilita, reiniciar la selección
     if (selectTurno.selectedOptions[0]?.disabled) {
         selectTurno.value = '';
     }
@@ -244,45 +232,26 @@ function descontarCupo(docId, turno) {
     return false;
 }
 
-// ==========================================================================
-// 5. FUNCIÓN AUXILIAR DE CANCELACIÓN (REUTILIZABLE PARA EL FUTURO)
-// ==========================================================================
-/**
- * Restaura/Suma 1 cupo disponible al doctor y turno indicados.
- * @param {string} idDoctor - Identificador único del doctor (ej. 'doc-1')
- * @param {string} turno - Turno a cancelar ('manana' | 'tarde')
- * @returns {boolean} - Devuelve true si la restauración fue exitosa.
- */
 function cancelarCita(idDoctor, turno) {
     const cupos = obtenerCuposActuales();
     const docObj = DOCTORES_SISTEMA.find(d => d.id === idDoctor);
 
-    if (!cupos[idDoctor] || !docObj) {
-        console.warn(`No se encontró registro para el doctor con ID: ${idDoctor}`);
-        return false;
-    }
+    if (!cupos[idDoctor] || !docObj) return false;
 
     const maxCupos = docObj.cuposMax[turno] || 0;
     const cupoActual = cupos[idDoctor][turno] || 0;
 
-    // Evita superar el límite máximo diario asignado
     if (cupoActual < maxCupos) {
         cupos[idDoctor][turno] += 1;
         guardarCuposActuales(cupos);
-        console.log(`Cupo devuelto al doctor ${idDoctor} en turno ${turno}. Cupos actuales: ${cupos[idDoctor][turno]}`);
         return true;
-    } else {
-        console.log(`El turno ${turno} del doctor ${idDoctor} ya tiene el máximo de cupos permitidos (${maxCupos}).`);
-        return false;
     }
+    return false;
 }
 
-// Exportamos la función al scope global para consumo externo
+window.DOCTORES_SISTEMA = DOCTORES_SISTEMA;
 window.cancelarCita = cancelarCita;
 
-// ==========================================================================
-// PASOS MULTIPASO DEL FORMULARIO (EXISTENTES)
-// ==========================================================================
 function siguientePaso(pasoActual) {
     const bloqueActual = document.querySelector(`.bloque-paso-${pasoActual}`);
     const camposObligatorios = bloqueActual.querySelectorAll('input[required], select[required], textarea[required]');
