@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const usuarios = JSON.parse(localStorage.getItem('meddi_usuarios')) || [];
 
-        // Buscar el usuario por su correo
         const usuarioEncontrado = usuarios.find(u => u.email.toLowerCase() === email.toLowerCase());
 
         if (!usuarioEncontrado) {
@@ -25,15 +24,19 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Guardamos la sesión activa y verificamos si tiene rol de administrador
         localStorage.setItem('meddi_sesion_activa_email', usuarioEncontrado.email);
         localStorage.setItem('meddi_es_admin', usuarioEncontrado.rol === 'admin' ? 'true' : 'false');
 
-        window.location.href = 'perfil.html';
+        const urlRetorno = sessionStorage.getItem('meddi_redirect_post_login');
+        if (urlRetorno) {
+            sessionStorage.removeItem('meddi_redirect_post_login');
+            window.location.href = urlRetorno;
+        } else {
+            window.location.href = 'perfil.html';
+        }
     });
 });
 
-// Crea la cuenta administrador en localStorage si no existe
 function inicializarAdminPorDefecto() {
     const usuarios = JSON.parse(localStorage.getItem('meddi_usuarios')) || [];
     const adminEmail = 'admin@medikali.pe';

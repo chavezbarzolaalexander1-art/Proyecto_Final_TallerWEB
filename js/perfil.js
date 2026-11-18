@@ -12,6 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
     gestionarAcciones(emailActivo, esAdmin);
     cargarCitasUsuario(emailActivo, esAdmin);
     inicializarManejadorBorradoCitas(emailActivo, esAdmin);
+
+    if (esAdmin) {
+        cargarMensajesContactoAdmin();
+        inicializarManejadorBorradoMensajes();
+    }
 });
 
 function verificarEsAdmin(emailActivo) {
@@ -44,7 +49,6 @@ function cargarDatosUsuario(emailActivo, esAdmin) {
         document.getElementById('perfil-email').textContent = usuario.email;
     }
 
-    // Ajustes visuales si es Administrador
     const rolBadge = document.querySelector('.rol-usuario');
     const tituloCitas = document.querySelector('.cabecera-citas h3');
 
@@ -72,7 +76,6 @@ function gestionarAcciones(emailActivo, esAdmin) {
 
     const btnEliminar = document.getElementById('btn-eliminar-cuenta');
     if (btnEliminar) {
-        // Evitar que el administrador elimine su propia cuenta por accidente
         if (esAdmin) {
             btnEliminar.style.display = 'none';
             return;
@@ -107,7 +110,6 @@ function cargarCitasUsuario(emailActivo, esAdmin) {
 
     if (!tbody) return;
 
-    // Si es admin, agregamos la columna "Cuenta / Correo" al encabezado si aún no existe
     if (esAdmin && theadRow && !document.getElementById('th-cuenta-admin')) {
         const thCuenta = document.createElement('th');
         thCuenta.id = 'th-cuenta-admin';
@@ -117,7 +119,6 @@ function cargarCitasUsuario(emailActivo, esAdmin) {
 
     const todasLasCitas = JSON.parse(localStorage.getItem('meddi_citas')) || [];
 
-    // SI ES ADMIN -> Muestra TODAS las citas | SI ES PACIENTE -> Filtra por su correo
     const citasAMostrar = esAdmin
         ? todasLasCitas
         : todasLasCitas.filter(c => c.emailUsuario.toLowerCase() === emailActivo.toLowerCase());
@@ -165,7 +166,6 @@ function cargarCitasUsuario(emailActivo, esAdmin) {
 function configurarEventosCheckboxes() {
     const checkTodo = document.getElementById('check-seleccionar-todo');
     const checksIndividuales = document.querySelectorAll('.check-cita');
-    const btnBorrar = document.getElementById('btn-borrar-citas');
 
     if (checkTodo) {
         checkTodo.onclick = () => {
@@ -208,20 +208,109 @@ function inicializarManejadorBorradoCitas(emailActivo, esAdmin) {
         if (!confirmacion) return;
 
         let todasLasCitas = JSON.parse(localStorage.getItem('meddi_citas')) || [];
-        const citasABorrar = todasLasCitas.filter(c => seleccionados.includes(c.id));
-
-        // RESTAURAR CUPOS RESPETANDO CAPACIDADES MÁXIMAS
-        citasABorrar.forEach(cita => {
-            if (typeof window.cancelarCita === 'function') {
-                window.cancelarCita(cita.doctorId, cita.turno);
-            }
-        });
-
-        // FILTRAR LOCALSTORAGE
         todasLasCitas = todasLasCitas.filter(c => !seleccionados.includes(c.id));
         localStorage.setItem('meddi_citas', JSON.stringify(todasLasCitas));
 
-        alert('Las citas seleccionadas han sido canceladas y borradas correctamente.');
+        alert('Las citas seleccionadas han sido canceladas y los cupos de esa fecha han sido liberados.');
         cargarCitasUsuario(emailActivo, esAdmin);
+    });
+}
+
+// =========================================================
+// GESTIÓN DE MENSAJES DE CONTÁCTANOS (SOLO ADMINISTRADOR)
+// =========================================================
+function cargarMensajesContactoAdmin() {
+    const seccionMensajes = document.getElementById('seccion-mensajes-admin');
+    const tbody = document.getElementById('cuerpo-tabla-mensajes');
+    const checkTodo = document.getElementById('check-seleccionar-todo-mensajes');
+    const btnBorrar = document.getElementById('btn-borrar-mensajes');
+
+    if (!seccionMensajes || !tbody) return;
+
+    seccionMensajes.style.display = 'block';
+
+    const mensajes = JSON.parse(localStorage.getItem('meddi_mensajes_contacto')) || [];
+    tbody.innerHTML = '';
+    if (checkTodo) checkTodo.checked = false;
+    if (btnBorrar) btnBorrar.disabled = true;
+
+    if (mensajes.length === 0) {
+        tbody.innerHTML = `
+            <tr>
+                <td colspan="7" class="tabla-vacia">No hay mensajes de contacto recibidos.</td>
+            </tr>
+        `;
+        if (checkTodo) checkTodo.disabled = true;
+        return;
+    }
+
+    if (checkTodo) checkTodo.disabled = false;
+
+    mensajes.forEach(msg => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td><input type="checkbox" class="check-mensaje" data-id="${msg.id}"></td>
+            <td>${msg.fecha || '-'}</td>
+            <td>${msg.nombre}</td>
+            <td>${msg.correo}</td>
+            <td>${msg.telefono}</td>
+            <td>${msg.servicio}</td>
+            <td class="celda-mensaje-texto">${msg.mensaje}</td>
+        `;
+        tbody.appendChild(tr);
+    });
+
+    configurarEventosCheckboxesMensajes();
+}
+
+function configurarEventosCheckboxesMensajes() {
+    const checkTodo = document.getElementById('check-seleccionar-todo-mensajes');
+    const checks = document.querySelectorAll('.check-mensaje');
+
+    if (checkTodo) {
+        checkTodo.onclick = () => {
+            checks.forEach(chk => chk.checked = checkTodo.checked);
+            actualizarEstadoBotonBorrarMensajes();
+        };
+    }
+
+    checks.forEach(chk => {
+        chk.onchange = () => {
+            if (!chk.checked && checkTodo) checkTodo.checked = false;
+            actualizarEstadoBotonBorrarMensajes();
+        };
+    });
+}
+
+function actualizarEstadoBotonBorrarMensajes() {
+    const btnBorrar = document.getElementById('btn-borrar-mensajes');
+    const seleccionados = document.querySelectorAll('.check-mensaje:checked').length;
+
+    if (btnBorrar) {
+        btnBorrar.disabled = seleccionados === 0;
+        btnBorrar.textContent = seleccionados > 0
+            ? `Borrar (${seleccionados})`
+            : 'Borrar seleccionados';
+    }
+}
+
+function inicializarManejadorBorradoMensajes() {
+    const btnBorrar = document.getElementById('btn-borrar-mensajes');
+    if (!btnBorrar) return;
+
+    btnBorrar.addEventListener('click', () => {
+        const seleccionados = Array.from(document.querySelectorAll('.check-mensaje:checked'))
+            .map(chk => chk.getAttribute('data-id'));
+
+        if (seleccionados.length === 0) return;
+
+        if (!confirm(`¿Deseas eliminar los ${seleccionados.length} mensajes seleccionados?`)) return;
+
+        let mensajes = JSON.parse(localStorage.getItem('meddi_mensajes_contacto')) || [];
+        mensajes = mensajes.filter(m => !seleccionados.includes(m.id));
+        localStorage.setItem('meddi_mensajes_contacto', JSON.stringify(mensajes));
+
+        alert('Mensajes eliminados correctamente.');
+        cargarMensajesContactoAdmin();
     });
 }

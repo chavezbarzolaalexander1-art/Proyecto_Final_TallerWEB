@@ -4,6 +4,11 @@ body{
     grid-auto-columns:  1fr ;
     min-height: 100vh;
 }
+main {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+}
 .cabecera-principal {
     background-color: var(--color-blanco);
     border-bottom: 3px solid var(--color-secundario); /* Línea celeste inferior decorativa */

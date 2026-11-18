@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Agendar Cita</title>
+    <title>Agendar Cita - Meddi</title>
     <link rel="stylesheet" href="../CSS/main.css">
 </head>
 <body>
@@ -36,93 +36,58 @@
         <p>
             En Meddi cuidamos cada detalle de la salud de nuestros adultos mayores. Solicita tu cita en pocos minutos
             completando el siguiente formulario. Nuestro equipo médico evaluará la solicitud y te contactará a la
-            brevedad
-            vía WhatsApp o llamada telefónica para confirmar el horario disponible y los detalles de tu consulta.
+            brevedad vía WhatsApp o llamada telefónica para confirmar el horario disponible y los detalles de tu consulta.
         </p>
     </section>
 
+    <!-- TABLA DE HORARIOS Y CUPOS AHORA ENCIMA DEL FORMULARIO -->
+    <section class="seccion-horarios-cupos" aria-label="Horarios y cupos disponibles">
+        <div class="cabecera-horarios">
+            <h3>Horarios y Cupos Disponibles</h3>
+            <p id="subtitulo-horarios">
+                Selecciona una especialidad en el formulario para ver los doctores, turnos y cupos disponibles a partir de mañana.
+            </p>
+        </div>
+
+        <div id="contenedor-tabla-horarios" class="contenedor-tabla-horarios">
+            <div class="mensaje-vacio-horarios">
+                Selecciona una especialidad para consultar la disponibilidad de cupos por fecha.
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULARIO DE CITA DEBAJO DE LA TABLA -->
     <section class="seccion-formulario-cita">
         <h3>Solicitud de Consulta Médica</h3>
         <p class="nota-formulario">Todos los campos marcados con (*) son obligatorios.</p>
 
-        <!-- Indicador de progreso -->
         <div class="indicador-pasos">
             <div class="paso-item paso-1-item activo" id="indicador-1">
                 <span class="numero">1</span>
-                <span class="texto">Paciente</span>
+                <span class="texto">Cita</span>
             </div>
             <div class="linea-progreso"></div>
             <div class="paso-item paso-2-item" id="indicador-2">
                 <span class="numero">2</span>
-                <span class="texto">Contacto</span>
+                <span class="texto">Paciente</span>
             </div>
             <div class="linea-progreso"></div>
             <div class="paso-item paso-3-item" id="indicador-3">
                 <span class="numero">3</span>
-                <span class="texto">Cita</span>
+                <span class="texto">Contacto</span>
             </div>
         </div>
 
         <form action="#" method="POST" class="formulario-cita" id="form-cita">
-
-            <!-- PASO 1: DATOS DEL PACIENTE -->
+            <!-- PASO 1: DETALLES DE LA CITA -->
             <fieldset class="bloque-paso bloque-paso-1 activo">
-                <legend>Datos del Paciente</legend>
-
-                <div class="campo">
-                    <label for="nombre-paciente">Nombres y Apellidos completos *</label>
-                    <input type="text" id="nombre-paciente" name="nombre_paciente" placeholder="Ej. Juan Pérez Ramos"
-                           required>
-                </div>
-
-                <div class="campo">
-                    <label for="dni-paciente">Documento de Identidad (DNI / CE) *</label>
-                    <input type="text" id="dni-paciente" name="dni_paciente" placeholder="Ej. 08765432" maxlength="12"
-                           required>
-                </div>
-
-                <div class="campo">
-                    <label for="edad-paciente">Edad *</label>
-                    <input type="number" id="edad-paciente" name="edad_paciente" min="1" max="120" placeholder="Ej. 72"
-                           required>
-                </div>
-
-                <div class="botones-paso">
-                    <div></div>
-                    <button type="button" class="btn-siguiente" onclick="siguientePaso(1)">Siguiente &rarr;</button>
-                </div>
-            </fieldset>
-
-            <!-- PASO 2: DATOS DE CONTACTO -->
-            <fieldset class="bloque-paso bloque-paso-2">
-                <legend>Datos de Contacto (Paciente o Familiar)</legend>
-
-                <div class="campo">
-                    <label for="nombre-contacto">Nombre del contacto o acompañante *</label>
-                    <input type="text" id="nombre-contacto" name="nombre_contacto" placeholder="Ej. María Pérez (Hija)"
-                           required>
-                </div>
-
-                <div class="campo">
-                    <label for="telefono-contacto">Teléfono o Celular (WhatsApp) *</label>
-                    <input type="tel" id="telefono-contacto" name="telefono_contacto" placeholder="Ej. 999 888 777"
-                           required>
-                </div>
-
-                <div class="campo">
-                    <label for="correo-contacto">Correo electrónico</label>
-                    <input type="email" id="correo-contacto" name="correo_contacto" placeholder="correo@ejemplo.com">
-                </div>
-
-                <div class="botones-paso">
-                    <button type="button" class="btn-anterior" onclick="anteriorPaso(2)">&larr; Anterior</button>
-                    <button type="button" class="btn-siguiente" onclick="siguientePaso(2)">Siguiente &rarr;</button>
-                </div>
-            </fieldset>
-
-            <!-- PASO 3: DETALLES DE LA CITA -->
-            <fieldset class="bloque-paso bloque-paso-3">
                 <legend>Detalles de la Cita</legend>
+
+                <div class="campo">
+                    <label for="sede-atencion">Sede de atención</label>
+                    <input type="text" id="sede-atencion" name="sede_atencion"
+                           value="Av. Nicolas de Pierola 123, Ate , Lima - Perú" readonly>
+                </div>
 
                 <div class="campo">
                     <label for="especialidad">Especialidad requerida *</label>
@@ -146,7 +111,6 @@
                     </select>
                 </div>
 
-                <!-- NUEVO CAMPO: Selector dinámico de doctores -->
                 <div class="campo">
                     <label for="doctor">Doctor especialista *</label>
                     <select id="doctor" name="doctor" required disabled>
@@ -184,6 +148,61 @@
                               required></textarea>
                 </div>
 
+                <div class="botones-paso">
+                    <div></div>
+                    <button type="button" class="btn-siguiente" onclick="siguientePaso(1)">Siguiente &rarr;</button>
+                </div>
+            </fieldset>
+
+            <!-- PASO 2: DATOS DEL PACIENTE -->
+            <fieldset class="bloque-paso bloque-paso-2">
+                <legend>Datos del Paciente</legend>
+
+                <div class="campo">
+                    <label for="nombre-paciente">Nombres y Apellidos completos *</label>
+                    <input type="text" id="nombre-paciente" name="nombre_paciente" placeholder="Ej. Juan Pérez Ramos"
+                           required>
+                </div>
+
+                <div class="campo">
+                    <label for="dni-paciente">Documento de Identidad (DNI / CE) *</label>
+                    <input type="text" id="dni-paciente" name="dni_paciente" placeholder="Ej. 08765432" maxlength="12"
+                           required>
+                </div>
+
+                <div class="campo">
+                    <label for="edad-paciente">Edad *</label>
+                    <input type="number" id="edad-paciente" name="edad_paciente" min="1" max="120" placeholder="Ej. 72"
+                           required>
+                </div>
+
+                <div class="botones-paso">
+                    <button type="button" class="btn-anterior" onclick="anteriorPaso(2)">&larr; Anterior</button>
+                    <button type="button" class="btn-siguiente" onclick="siguientePaso(2)">Siguiente &rarr;</button>
+                </div>
+            </fieldset>
+
+            <!-- PASO 3: DATOS DE CONTACTO -->
+            <fieldset class="bloque-paso bloque-paso-3">
+                <legend>Datos de Contacto (Paciente o Familiar)</legend>
+
+                <div class="campo">
+                    <label for="nombre-contacto">Nombre del contacto o acompañante *</label>
+                    <input type="text" id="nombre-contacto" name="nombre_contacto" placeholder="Ej. María Pérez (Hija)"
+                           required>
+                </div>
+
+                <div class="campo">
+                    <label for="telefono-contacto">Teléfono o Celular (WhatsApp) *</label>
+                    <input type="tel" id="telefono-contacto" name="telefono_contacto" placeholder="Ej. 999 888 777"
+                           required>
+                </div>
+
+                <div class="campo">
+                    <label for="correo-contacto">Correo electrónico</label>
+                    <input type="email" id="correo-contacto" name="correo_contacto" placeholder="correo@ejemplo.com">
+                </div>
+
                 <div class="campo-terminos">
                     <label for="terminos">
                         <input type="checkbox" id="terminos" name="terminos" required>
@@ -199,6 +218,27 @@
         </form>
     </section>
 </main>
+
+<!-- MODAL DE RESUMEN DE LA CITA -->
+<div class="modal-overlay" id="modal-resumen-cita" role="dialog" aria-modal="true" aria-labelledby="titulo-modal-cita">
+    <div class="modal-contenido">
+        <div class="modal-cabecera">
+            <span class="modal-icono-exito">&#10004;</span>
+            <h3 id="titulo-modal-cita">¡Solicitud de Cita Registrada!</h3>
+            <p>Tu cupo ha sido reservado exitosamente. Aquí tienes el resumen de tu cita:</p>
+        </div>
+
+        <div class="modal-cuerpo" id="detalle-resumen-cita">
+            <!-- Se llena dinámicamente desde agenda.js -->
+        </div>
+
+        <div class="modal-acciones">
+            <button type="button" class="btn-modal-secundario" id="btn-cerrar-modal">Cerrar</button>
+            <a href="../Autth/perfil.html" class="btn-modal-primario" id="btn-ir-perfil-modal">Ir a Mi Perfil</a>
+        </div>
+    </div>
+</div>
+
 <footer class="footer-principal">
     <div class="contenido-footer">
         <div class="footer-columna">
@@ -227,7 +267,6 @@
                 <li><a href="../Autth/register.html">Register</a></li>
             </ul>
         </div>
-
     </div>
 </footer>
 <script src="agenda.js"></script>

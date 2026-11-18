@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Document</title>
+    <title>Meddi - Salud Integral del Adulto Mayor</title>
     <link rel="stylesheet" href="CSS/main.css">
 </head>
 <body>
@@ -34,6 +34,44 @@
     <section class="Banner-inicio">
         <img src="img/Iconos/banner_1.png" alt="banner-inicio">
     </section>
+
+    <!-- NUEVO: Llamado a la acción con Sede fija y selector de Especialidades -->
+    <section class="buscador-cita-inicio" aria-label="Reserva rápida de cita">
+        <div class="contenedor-buscador-cita">
+            <p class="titulo-buscador-cita">Especialistas listos para ayudarte.</p>
+            <form class="barra-buscador-cita" id="form-reserva-rapida">
+                <div class="grupo-selector-inicio">
+                    <label for="inicio-sede">Dirección de atención</label>
+                    <select id="inicio-sede" name="sede">
+                        <option value="ate" selected>Av. Nicolas de Pierola 123, Ate , Lima - Perú</option>
+                    </select>
+                </div>
+                <div class="grupo-selector-inicio">
+                    <label for="inicio-especialidad">Especialidad</label>
+                    <select id="inicio-especialidad" name="especialidad">
+                        <option value="" selected>Seleccionar especialidad</option>
+                        <option value="geriatria">Geriatría</option>
+                        <option value="medicina-interna">Medicina Interna</option>
+                        <option value="endocrinologia">Endocrinología</option>
+                        <option value="nutricion">Nutrición</option>
+                        <option value="psiquiatria">Psiquiatría</option>
+                        <option value="dermatologia">Dermatología</option>
+                        <option value="hematologia">Hematología</option>
+                        <option value="neumologia">Neumología</option>
+                        <option value="gastroenterologia">Gastroenterología</option>
+                        <option value="cardiologia">Cardiología</option>
+                        <option value="neurologia">Neurología</option>
+                        <option value="psicologia">Psicología</option>
+                        <option value="oftalmologia">Oftalmología</option>
+                        <option value="enfermeria">Enfermería</option>
+                        <option value="reumatologia">Reumatología</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-reservar-inicio">Reservar cita</button>
+            </form>
+        </div>
+    </section>
+
     <section class="Nosotros">
         <p>Médicos especialistas comprometidos con el bienestar y salud del Adulto Mayor. Contamos con un equipo de
             especialistas
@@ -206,6 +244,6 @@
         </div>
     </div>
 </footer>
-<script src="/js/main.js"></script>
+<script src="js/main.js"></script>
 </body>
-</html>
+</html>>

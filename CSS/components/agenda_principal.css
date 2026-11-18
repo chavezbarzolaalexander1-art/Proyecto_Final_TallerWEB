@@ -257,6 +257,282 @@
 .btn-anterior:hover {
     background-color: #e2e8f0;
 }
+/* ==========================================================================
+   TABLA DE HORARIOS Y CUPOS DISPONIBLES
+   ========================================================================== */
+.seccion-horarios-cupos {
+    width: 100%;
+    max-width: 960px;
+    min-width: 0;
+    margin: 0 auto 2.5rem;
+    padding: 2rem;
+    background-color: var(--color-blanco);
+    border-radius: 14px;
+    border: 1px solid var(--color-borde);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+}
+
+.cabecera-horarios {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.cabecera-horarios h3 {
+    font-size: 1.5rem;
+    color: var(--color-primario-oscuro);
+    margin-bottom: 0.4rem;
+}
+
+.cabecera-horarios p {
+    font-size: 0.95rem;
+    color: var(--color-texto-mutado);
+    margin-bottom: 0;
+}
+
+/* Desplazamiento horizontal exclusivamente dentro del recuadro de la tabla */
+.contenedor-tabla-horarios {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid var(--color-borde);
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.mensaje-vacio-horarios {
+    padding: 2rem 1rem;
+    text-align: center;
+    color: var(--color-texto-mutado);
+    background-color: var(--color-fondo);
+    font-size: 0.95rem;
+}
+
+.tabla-horarios-cupos {
+    width: 100%;
+    min-width: 640px;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.tabla-horarios-cupos th {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    padding: 0.85rem 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.tabla-horarios-cupos th:first-child,
+.tabla-horarios-cupos th:nth-child(2) {
+    text-align: left;
+}
+
+.tabla-horarios-cupos th.columna-fecha-activa {
+    background-color: var(--color-primario-oscuro);
+}
+
+.tabla-horarios-cupos td {
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--color-borde);
+    color: var(--color-texto);
+    white-space: nowrap;
+}
+
+.celda-doctor-horario {
+    text-align: left;
+    background-color: #fafcfe;
+    border-right: 1px solid var(--color-borde);
+    color: var(--color-primario-oscuro);
+}
+
+.celda-turno-horario {
+    text-align: left;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.celda-turno-horario small {
+    font-weight: 400;
+    color: var(--color-texto-mutado);
+}
+
+.badge-cupo {
+    display: inline-block;
+    padding: 0.25rem 0.65rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.badge-cupo.disponible {
+    background-color: var(--color-fondo);
+    color: var(--color-primario-oscuro);
+    border: 1px solid var(--color-secundario);
+}
+
+.badge-cupo.agotado {
+    background-color: #fee2e2;
+    color: #b91c1c;
+}
+
+.badge-cupo.no-atiende {
+    background-color: #f1f5f9;
+    color: var(--color-texto-mutado);
+}
+/* ==========================================================================
+   MODAL DE RESUMEN DE LA CITA
+   ========================================================================== */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(15, 23, 42, 0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    z-index: 2000;
+}
+
+.modal-overlay.activo {
+    display: flex;
+    animation: fadeIn 0.25s ease-out;
+}
+
+.modal-contenido {
+    background-color: var(--color-blanco);
+    width: 100%;
+    max-width: 520px;
+    border-radius: 14px;
+    border: 1px solid var(--color-borde);
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+    padding: 2rem 1.6rem;
+}
+
+.modal-cabecera {
+    text-align: center;
+    margin-bottom: 1.4rem;
+}
+
+.modal-icono-exito {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--color-fondo);
+    color: var(--color-primario);
+    border: 2px solid var(--color-secundario);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+}
+
+.modal-cabecera h3 {
+    font-size: 1.4rem;
+    color: var(--color-primario-oscuro);
+    margin-bottom: 0.35rem;
+}
+
+.modal-cabecera p {
+    font-size: 0.92rem;
+    color: var(--color-texto-mutado);
+    margin-bottom: 0;
+}
+
+.modal-cuerpo {
+    background-color: var(--color-fondo);
+    border: 1px solid var(--color-borde);
+    border-radius: 10px;
+    padding: 1rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    margin-bottom: 1.5rem;
+}
+
+.fila-resumen {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 0.9rem;
+    border-bottom: 1px dashed var(--color-borde);
+    padding-bottom: 0.45rem;
+}
+
+.fila-resumen:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.fila-resumen span {
+    color: var(--color-texto-mutado);
+}
+
+.fila-resumen strong {
+    color: var(--color-texto);
+    text-align: right;
+}
+
+.modal-acciones {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.8rem;
+}
+
+.btn-modal-secundario,
+.btn-modal-primario {
+    padding: 0.7rem 1.3rem;
+    border-radius: 8px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-modal-secundario {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    border: 1px solid var(--color-borde);
+}
+
+.btn-modal-secundario:hover {
+    background-color: #e2e8f0;
+}
+
+.btn-modal-primario {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    border: none;
+}
+
+.btn-modal-primario:hover {
+    background-color: var(--color-primario-oscuro);
+    color: var(--color-blanco);
+}
+
+@media (max-width: 768px) {
+    .seccion-horarios-cupos {
+        margin: 0 1rem 2rem;
+        padding: 1.4rem 1rem;
+    }
+    .fila-resumen {
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+
+    .fila-resumen strong {
+        text-align: left;
+    }
+
+    .modal-acciones {
+        flex-direction: column;
+    }
+}
 
 @media (max-width: 768px) {
     .seccion-intro-reserva {
@@ -267,13 +543,26 @@
         font-size: 1.6rem;
     }
 
+    .seccion-horarios-cupos {
+        width: calc(100% - 2rem);
+        max-width: 100%;
+        min-width: 0;
+        margin: 0 auto 2rem;
+        padding: 1.4rem 1rem;
+    }
+
     .seccion-formulario-cita {
-        margin: 0 1rem 3.5rem;
+        width: calc(100% - 2rem);
+        max-width: 100%;
+        min-width: 0;
+        margin: 0 auto 3.5rem;
         padding: 1.8rem 1.2rem;
     }
+
     .campo {
         margin-bottom: 1.5rem;
     }
+
     .bloque-paso {
         padding: 1.2rem 0.9rem;
     }
@@ -281,7 +570,21 @@
     .campo label {
         font-size: 0.9rem;
     }
+
     .indicador-pasos {
         padding: 0 3rem;
+    }
+
+    .fila-resumen {
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+
+    .fila-resumen strong {
+        text-align: left;
+    }
+
+    .modal-acciones {
+        flex-direction: column;
     }
 }
