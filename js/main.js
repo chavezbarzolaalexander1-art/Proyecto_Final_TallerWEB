@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     actualizarBarraNavegacion();
+    inicializarReservaRapidaInicio();
 });
 
 function actualizarBarraNavegacion() {
@@ -10,7 +11,6 @@ function actualizarBarraNavegacion() {
     const btnLogin = menu.querySelector('.Login-Boton')?.parentElement;
     const btnRegister = menu.querySelector('.Register-Boton')?.parentElement;
 
-    // Calcular la ruta correcta a Autth/perfil.html según la ubicación actual
     const path = window.location.pathname;
     let rutaPerfil = 'Autth/perfil.html';
 
@@ -28,11 +28,9 @@ function actualizarBarraNavegacion() {
     let itemPerfil = document.getElementById('item-perfil-menu');
 
     if (emailActivo) {
-        // Ocultar botones de Login y Register
         if (btnLogin) btnLogin.style.display = 'none';
         if (btnRegister) btnRegister.style.display = 'none';
 
-        // Insertar o actualizar el botón "Mi Perfil"
         if (!itemPerfil) {
             itemPerfil = document.createElement('li');
             itemPerfil.id = 'item-perfil-menu';
@@ -49,4 +47,18 @@ function actualizarBarraNavegacion() {
         if (btnRegister) btnRegister.style.display = '';
         if (itemPerfil) itemPerfil.style.display = 'none';
     }
+}
+
+function inicializarReservaRapidaInicio() {
+    const formRapido = document.getElementById('form-reserva-rapida');
+    if (!formRapido) return;
+
+    formRapido.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const especialidad = document.getElementById('inicio-especialidad')?.value || '';
+        const destino = especialidad
+            ? `Agendar_Cita/index.html?especialidad=${encodeURIComponent(especialidad)}`
+            : 'Agendar_Cita/index.html';
+        window.location.href = destino;
+    });
 }

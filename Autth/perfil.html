@@ -67,30 +67,60 @@
             </div>
         </div>
 
-        <!-- COLUMNA DERECHA: TABLA DE CITAS -->
-        <div class="tarjeta-perfil-citas">
-            <div class="cabecera-citas">
-                <h3>Mis Citas Agendadas</h3>
-                <button type="button" id="btn-borrar-citas" class="btn-borrar-citas" disabled>Borrar seleccionadas</button>
+        <!-- COLUMNA DERECHA: TABLAS DE GESTIÓN -->
+        <div class="columna-derecha-perfil">
+            <!-- TABLA DE CITAS -->
+            <div class="tarjeta-perfil-citas">
+                <div class="cabecera-citas">
+                    <h3>Mis Citas Agendadas</h3>
+                    <button type="button" id="btn-borrar-citas" class="btn-borrar-citas" disabled>Borrar seleccionadas</button>
+                </div>
+
+                <div class="contenedor-tabla-citas">
+                    <table class="tabla-citas-perfil">
+                        <thead>
+                        <tr>
+                            <th><input type="checkbox" id="check-seleccionar-todo" title="Seleccionar todas las citas"></th>
+                            <th>Paciente</th>
+                            <th>Especialidad</th>
+                            <th>Doctor</th>
+                            <th>Fecha</th>
+                            <th>Turno</th>
+                            <th>Modalidad</th>
+                        </tr>
+                        </thead>
+                        <tbody id="cuerpo-tabla-citas">
+                        <!-- Se puebla dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
-            <div class="contenedor-tabla-citas">
-                <table class="tabla-citas-perfil">
-                    <thead>
-                    <tr>
-                        <th><input type="checkbox" id="check-seleccionar-todo" title="Seleccionar todas las citas"></th>
-                        <th>Paciente</th>
-                        <th>Especialidad</th>
-                        <th>Doctor</th>
-                        <th>Fecha</th>
-                        <th>Turno</th>
-                        <th>Modalidad</th>
-                    </tr>
-                    </thead>
-                    <tbody id="cuerpo-tabla-citas">
-                    <!-- Se puebla dinámicamente -->
-                    </tbody>
-                </table>
+            <!-- TABLA EXCLUSIVA PARA ADMINISTRADOR: MENSAJES DE CONTÁCTANOS -->
+            <div class="tarjeta-perfil-citas" id="seccion-mensajes-admin" style="display: none;">
+                <div class="cabecera-citas">
+                    <h3>Mensajes de Contáctanos (Panel Admin)</h3>
+                    <button type="button" id="btn-borrar-mensajes" class="btn-borrar-citas" disabled>Borrar seleccionados</button>
+                </div>
+
+                <div class="contenedor-tabla-citas">
+                    <table class="tabla-citas-perfil">
+                        <thead>
+                        <tr>
+                            <th><input type="checkbox" id="check-seleccionar-todo-mensajes" title="Seleccionar todos los mensajes"></th>
+                            <th>Fecha</th>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Teléfono</th>
+                            <th>Motivo / Servicio</th>
+                            <th>Mensaje</th>
+                        </tr>
+                        </thead>
+                        <tbody id="cuerpo-tabla-mensajes">
+                        <!-- Se puebla dinámicamente solo para admin -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
 

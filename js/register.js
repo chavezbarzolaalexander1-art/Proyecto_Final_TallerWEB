@@ -14,10 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
             password: document.getElementById('reg-password').value
         };
 
-        // Obtener la lista de usuarios (o array vacío si no existe)
         const usuarios = JSON.parse(localStorage.getItem('meddi_usuarios')) || [];
 
-        // VALIDACIÓN: Verificar si el correo o el DNI ya existen
         const existeEmail = usuarios.some(u => u.email.toLowerCase() === nuevoUsuario.email.toLowerCase());
         const existeDni = usuarios.some(u => u.dni === nuevoUsuario.dni);
 
@@ -31,14 +29,20 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Agregar el nuevo usuario a la lista y guardar
         usuarios.push(nuevoUsuario);
         localStorage.setItem('meddi_usuarios', JSON.stringify(usuarios));
 
-        // Iniciar sesión automáticamente
         localStorage.setItem('meddi_sesion_activa_email', nuevoUsuario.email);
+        localStorage.setItem('meddi_es_admin', 'false');
 
         alert('¡Cuenta registrada exitosamente!');
-        window.location.href = 'perfil.html';
+
+        const urlRetorno = sessionStorage.getItem('meddi_redirect_post_login');
+        if (urlRetorno) {
+            sessionStorage.removeItem('meddi_redirect_post_login');
+            window.location.href = urlRetorno;
+        } else {
+            window.location.href = 'perfil.html';
+        }
     });
 });

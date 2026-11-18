@@ -268,6 +268,117 @@
     border-radius: 20px;
     margin-top: 0.3rem;
 }
+/* ==========================================================================
+   LLAMADO A LA ACCIÓN: BUSCADOR RÁPIDO DE CITA EN INICIO
+   ========================================================================== */
+.buscador-cita-inicio {
+    max-width: 960px;
+    margin: -2.2rem auto 2.5rem;
+    padding: 0 1.5rem;
+    position: relative;
+    z-index: 10;
+}
+
+.contenedor-buscador-cita {
+    background-color: var(--color-fondo);
+    border: 1px solid var(--color-borde);
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 10px 25px rgba(2, 132, 199, 0.1);
+}
+
+.titulo-buscador-cita {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-primario-oscuro);
+    margin-bottom: 1rem;
+}
+
+.barra-buscador-cita {
+    background-color: var(--color-blanco);
+    border: 1px solid var(--color-borde);
+    border-radius: 14px;
+    padding: 1rem 1.2rem;
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.grupo-selector-inicio {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    min-width: 0;
+}
+
+.grupo-selector-inicio label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-texto-mutado);
+}
+
+.grupo-selector-inicio select {
+    width: 100%;
+    padding: 0.72rem 0.9rem;
+    font-size: 0.95rem;
+    font-family: inherit;
+    color: var(--color-texto);
+    background-color: var(--color-blanco);
+    border: 1px solid var(--color-borde);
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.grupo-selector-inicio select:focus {
+    border-color: var(--color-secundario);
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+}
+
+.btn-reservar-inicio {
+    background-color: var(--color-primario-oscuro);
+    color: var(--color-blanco);
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 999px;
+    font-size: 0.98rem;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(3, 105, 161, 0.25);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-reservar-inicio:hover {
+    background-color: var(--color-primario);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .buscador-cita-inicio {
+        margin: 1.5rem auto 2rem;
+        padding: 0 1rem;
+    }
+
+    .contenedor-buscador-cita {
+        padding: 1.2rem 1rem;
+    }
+
+    .barra-buscador-cita {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.9rem;
+    }
+
+    .btn-reservar-inicio {
+        width: 100%;
+        text-align: center;
+    }
+}
 
 @media (max-width: 768px) {
     .servicios h2,

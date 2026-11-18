@@ -246,3 +246,46 @@ html, body {
     background-color: #fef3c7;
     color: #b45309;
 }
+/* Columna derecha apilada (Citas + Mensajes Admin) */
+.columna-derecha-perfil {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+#seccion-mensajes-admin {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+#seccion-mensajes-admin .contenedor-tabla-citas {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
+}
+
+#seccion-mensajes-admin .tabla-citas-perfil {
+    width: 100%;
+    min-width: 760px;
+}
+
+.tabla-citas-perfil td.celda-mensaje-texto {
+    white-space: normal;
+    min-width: 220px;
+    max-width: 300px;
+    line-height: 1.4;
+}
+
+.tabla-vacia {
+    text-align: center;
+    color: var(--color-texto-mutado);
+    padding: 1.5rem;
+}
